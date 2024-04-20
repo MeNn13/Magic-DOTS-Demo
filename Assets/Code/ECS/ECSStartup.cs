@@ -1,11 +1,9 @@
 ﻿using Assets.Code.ECS.EntityReference;
-using Assets.Code.ECS.Gravity;
 using Assets.Code.ECS.Health;
 using Assets.Code.ECS.Input;
 using Assets.Code.ECS.Moveable;
 using Assets.Code.ECS.Skills.Fire;
 using Assets.Code.ECS.Skills.Fire.Burning;
-using Codice.Client.BaseCommands.BranchExplorer;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
@@ -41,7 +39,6 @@ namespace Assets.Code.ECS
             _systems.Add(new InitEntityReferenceSystem())
                 .Add(new InputHandlerSystem())
                 .Add(new InputMoveableSystem())
-                .Add(new GravitySystem())
                 .Add(new HealthSystem())
                 .Add(new HealthBurnSystem())
                 .Add(new BurnSystem())
