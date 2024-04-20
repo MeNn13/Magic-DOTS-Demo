@@ -5,8 +5,8 @@ namespace Assets.Code.ECS.Skills.Fire.Burning
 {
     public class BurningSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<BurningComponent> _filter;
-        private ParticleSystem _particlePref;
+        private readonly EcsFilter<BurningComponent>.Exclude<PlayerComponent> _filter;
+        private readonly ParticleSystem _particlePref;
 
         public void Run()
         {

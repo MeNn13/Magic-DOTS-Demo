@@ -19,6 +19,7 @@ namespace Assets.Code.ECS.Skills.Fire
                 burning.burningObject = burnObject.collider.gameObject.transform;
                 burning.mesh = burnObject.collider.GetComponent<MeshFilter>().mesh;
                 burning.burningTime = 3f;
+                burning.multiplyDamage = 10f;
 
                 entity.Del<BurnTriggerComponent>();
             }
