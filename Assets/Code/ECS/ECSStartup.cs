@@ -15,50 +15,68 @@ namespace Assets.Code.ECS
         [SerializeField] private ParticleSystem _fire;
 
         EcsWorld _world;
-        EcsSystems _systems;
+        EcsSystems _systemsUpdate;
+        EcsSystems _systemsFixedUpdate;
 
         private void Awake()
         {
             _world = new();
-            _systems = new EcsSystems(_world);
+            _systemsUpdate = new EcsSystems(_world);
+            _systemsFixedUpdate = new EcsSystems(_world);
 
-            _systems?.ConvertScene();
+            _systemsUpdate?.ConvertScene();
+
             OneFrame();
             AddSystems();
+            AddFixedSystems();
             Inject();
-            _systems?.Init();
+
+            _systemsUpdate?.Init();
+            _systemsFixedUpdate?.Init();
         }
 
         private void OneFrame()
         {
-            _systems.OneFrame<InitEntityReferenceComponent>();
+            _systemsUpdate.OneFrame<InitEntityReferenceComponent>();
         }
 
         private void AddSystems()
         {
-            _systems.Add(new InitEntityReferenceSystem())
+            _systemsUpdate.Add(new InitEntityReferenceSystem())
                 .Add(new InputHandlerSystem())
-                .Add(new InputMoveableSystem())
                 .Add(new HealthSystem())
                 .Add(new HealthBurnSystem())
                 .Add(new BurnSystem())
                 .Add(new BurningSystem());
         }
 
+        private void AddFixedSystems()
+        {
+            _systemsFixedUpdate.Add(new InputMoveableSystem());
+        }
+
         private void Inject()
         {
-            _systems?.Inject(_fire);
+            _systemsUpdate?.Inject(_fire);
         }
 
         private void Update()
         {
-            _systems?.Run();
+            _systemsUpdate?.Run();
+        }
+
+        private void FixedUpdate()
+        {
+            _systemsFixedUpdate?.Run();
         }
 
         private void OnDestroy()
         {
-            _systems?.Destroy();
-            _systems = null;
+            _systemsUpdate.Destroy();
+            _systemsUpdate = null;
+            _systemsFixedUpdate.Destroy();
+            _systemsFixedUpdate = null;
+
             _world?.Destroy();
             _world = null;
         }

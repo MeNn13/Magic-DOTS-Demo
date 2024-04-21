@@ -4,9 +4,21 @@ using UnityEngine;
 
 namespace Assets.Code.ECS.Moveable
 {
-    public class InputMoveableSystem : IEcsRunSystem
+    public class InputMoveableSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilter<InputComponent, MoveableComponent> _filter;
+        private Rigidbody _rb;
+
+        public void Init()
+        {
+            foreach (var i in _filter)
+            {
+                ref MoveableComponent component = ref _filter.Get2(i);
+
+                _rb = component.transform.GetComponent<Rigidbody>();
+            }
+        }
+
         public void Run()
         {
             foreach (var i in _filter)
@@ -14,22 +26,22 @@ namespace Assets.Code.ECS.Moveable
                 ref InputComponent input = ref _filter.Get1(i);
                 ref MoveableComponent move = ref _filter.Get2(i);
 
-                Move(input.move, move.transform, move.speed, move.rotateSpeed);
+                Vector3 moveDirection = new(input.move.x, 0, input.move.y);
+
+                Movement(moveDirection, move.transform, move.speed, move.rotateSpeed);
             }
         }
-        private void Move(Vector2 inputMove, Transform transform, float speed, float rotateSpeed)
+        private void Movement(Vector3 direction, Transform transform, float speed, float rotateSpeed)
         {
-            Vector3 moveDirection = new(inputMove.x, 0, inputMove.y);
-
-            if (moveDirection.magnitude >= .1f)
+            if (direction.magnitude >= .1f)
             {
-                Quaternion rotation = Quaternion.LookRotation(moveDirection);
-                rotation.x = 0;
-                rotation.z = 0;
-                transform.rotation = (Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.fixedDeltaTime));
+                Quaternion rotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotateSpeed * Time.fixedDeltaTime);
             }
 
-            transform.position += moveDirection * speed * Time.deltaTime;
+            Vector3 velocity = direction * speed * Time.fixedDeltaTime;
+            velocity.y = _rb.velocity.y;
+            _rb.velocity = velocity;
         }
     }
 }
