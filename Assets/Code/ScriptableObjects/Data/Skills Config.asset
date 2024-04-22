@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a5a9d4711361f94d89a6aed7531e2c6, type: 3}
-  m_Name: Player Data
+  m_Script: {fileID: 11500000, guid: 85437001480eb6541be02f0bb166476c, type: 3}
+  m_Name: Skills Config
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 7988200084341611212, guid: 77bfd8553b6c8c64c88c6a3689359101, type: 3}
-  _speed: 5
+  _flamethrower: {fileID: 8654439699591722214, guid: ee1928735234aed40a05be6fef03c12a,
+    type: 3}

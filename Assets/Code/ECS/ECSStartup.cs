@@ -1,4 +1,5 @@
-﻿using Assets.Code.ECS.EntityReference;
+﻿using Assets.Code.ECS.Attack;
+using Assets.Code.ECS.EntityReference;
 using Assets.Code.ECS.Health;
 using Assets.Code.ECS.Input;
 using Assets.Code.ECS.Moveable;
@@ -13,6 +14,7 @@ namespace Assets.Code.ECS
     internal class ECSStartup : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _fire;
+        [SerializeField] private SkillsConfig _skillsConfig;
 
         EcsWorld _world;
         EcsSystems _systemsUpdate;
@@ -44,8 +46,9 @@ namespace Assets.Code.ECS
         {
             _systemsUpdate.Add(new InitEntityReferenceSystem())
                 .Add(new InputHandlerSystem())
+                .Add(new InputAttackSystem())
                 .Add(new HealthSystem())
-                .Add(new HealthBurnSystem())
+                .Add(new HealthBurningSystem())
                 .Add(new BurnSystem())
                 .Add(new BurningSystem());
         }
@@ -58,6 +61,7 @@ namespace Assets.Code.ECS
         private void Inject()
         {
             _systemsUpdate?.Inject(_fire);
+            _systemsUpdate?.Inject(_skillsConfig);
         }
 
         private void Update()

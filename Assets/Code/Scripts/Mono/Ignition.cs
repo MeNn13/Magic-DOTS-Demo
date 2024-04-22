@@ -6,20 +6,13 @@ namespace Assets.Code.Scripts.Mono
 {
     public class Ignition : MonoBehaviour
     {
-        private const string _tag = "Burnable";
-        private const string _playerTag = "Player";
-
         private void OnTriggerStay(Collider other)
         {
-            if (other.CompareTag(_tag))
+            if (other.TryGetComponent(out EntityReference reference))
             {
-                EcsEntity entity = other.GetComponent<EntityReference>().Entity;
-                entity.Get<BurnTriggerComponent>().collider = other;
-            }
-            else if (other.CompareTag(_playerTag))
-            {
-                EcsEntity entity = other.GetComponent<EntityReference>().Entity;
-                entity.Get<BurnTriggerComponent>().collider = other;
+                EcsEntity entity = reference.Entity;
+                if (entity.Has<BurnableComponent>())
+                    entity.Get<BurnTriggerComponent>().collider = other;
             }
         }
     }

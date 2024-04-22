@@ -7,5 +7,6 @@ namespace Assets.Code.ECS.Input
     public struct InputComponent
     {
         public Vector2 move;
+        public bool isAttacking;
     }
 }

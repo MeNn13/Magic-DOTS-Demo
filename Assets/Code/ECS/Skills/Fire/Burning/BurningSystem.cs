@@ -5,8 +5,7 @@ namespace Assets.Code.ECS.Skills.Fire.Burning
 {
     public class BurningSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<BurningComponent>.Exclude<PlayerComponent> _filter;
-        private readonly ParticleSystem _particlePref;
+        private readonly EcsFilter<BurningComponent>.Exclude<HealthComponent> _filter;
 
         public void Run()
         {
@@ -15,37 +14,32 @@ namespace Assets.Code.ECS.Skills.Fire.Burning
                 ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref BurningComponent burning = ref _filter.Get1(i);
 
-                if (TryDestroyObject(ref burning, ref entity))
-                    return;
+                BurningParticleActive(burning);
 
-                SetParticleValue(burning);
+                TryDestroyObject(ref burning, ref entity);
             }
         }
 
-        private void SetParticleValue(BurningComponent burning)
+        private void BurningParticleActive(BurningComponent burning)
         {
-            ParticleSystem particle = burning.burningObject.GetComponentInChildren<ParticleSystem>();
+            ParticleSystem particle = burning.burningObject
+                .Find("Burning Particle")
+                .GetComponent<ParticleSystem>();
 
-            if (particle != null)
-                return;
-
-            particle = Object.Instantiate(_particlePref, burning.burningObject);
-            var shape = particle.shape;
-            shape.mesh = burning.mesh;
+            if (particle.isStopped)
+                particle.Play();
         }
 
-        private bool TryDestroyObject(ref BurningComponent burning, ref EcsEntity entity)
+        private void TryDestroyObject(ref BurningComponent burning, ref EcsEntity entity)
         {
             if (burning.burningTime <= 0)
             {
                 Object.Destroy(burning.burningObject.gameObject);
                 entity.Destroy();
-                return true;
             }
             else
             {
                 burning.burningTime -= Time.deltaTime;
-                return false;
             }
         }
     }

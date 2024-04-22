@@ -9,12 +9,12 @@ namespace Assets.Code.ECS.Input
         private readonly EcsFilter<InputComponent> _filter;
         private InputHandler _inputActions;
 
-
         public void Init()
         {
             _inputActions = new InputHandler();
             _inputActions.Enable();
         }
+
         public void Destroy()
         {
             _inputActions.Dispose();
@@ -29,6 +29,7 @@ namespace Assets.Code.ECS.Input
                 ref InputComponent input = ref _filter.Get1(i);
 
                 input.move = _inputActions.Character.Move.ReadValue<Vector2>();
+                input.isAttacking = _inputActions.Character.Attack.IsPressed();
             }
         }
     }
