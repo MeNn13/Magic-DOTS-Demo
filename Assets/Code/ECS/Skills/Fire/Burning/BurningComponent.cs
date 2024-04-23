@@ -2,7 +2,7 @@ using UnityEngine;
 public struct BurningComponent
 {
     public Transform burningObject;
-    public Mesh mesh;
+    public ParticleSystem burningParticle;
     public float burningTime;
     public float multiplyDamage;
 }

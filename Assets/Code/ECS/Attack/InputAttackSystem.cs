@@ -7,8 +7,6 @@ namespace Assets.Code.ECS.Attack
     internal class InputAttackSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilter<InputComponent, AttackComponent> _filter;
-        private readonly SkillsConfig _skillConfig;
-
         private ParticleSystem _flamethrower;
 
         public void Init()
@@ -17,7 +15,7 @@ namespace Assets.Code.ECS.Attack
             {
                 ref AttackComponent component = ref _filter.Get2(i);
 
-                _flamethrower = Object.Instantiate(_skillConfig.Flamethrower, component.hand);
+                _flamethrower = Object.Instantiate(_flamethrower, component.hand);
             }
         }
 

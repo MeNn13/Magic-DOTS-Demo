@@ -5,6 +5,7 @@ using Assets.Code.ECS.Input;
 using Assets.Code.ECS.Moveable;
 using Assets.Code.ECS.Skills.Fire;
 using Assets.Code.ECS.Skills.Fire.Burning;
+using Assets.Code.ECS.Skills.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
@@ -14,11 +15,13 @@ namespace Assets.Code.ECS
     internal class ECSStartup : MonoBehaviour
     {
         [SerializeField] private ParticleSystem _fire;
-        [SerializeField] private SkillsConfig _skillsConfig;
+        [SerializeField] private EffectConfig _effectConfig;
 
-        EcsWorld _world;
-        EcsSystems _systemsUpdate;
-        EcsSystems _systemsFixedUpdate;
+        private EcsWorld _world;
+        private EcsSystems _systemsUpdate;
+        private EcsSystems _systemsFixedUpdate;
+
+        private BurnParticlePool _burningParticlePool;
 
         private void Awake()
         {
@@ -26,6 +29,13 @@ namespace Assets.Code.ECS
             _systemsUpdate = new EcsSystems(_world);
             _systemsFixedUpdate = new EcsSystems(_world);
 
+            _burningParticlePool = new(_effectConfig.BurningData.Particle, 50, "Burning Pool");
+
+            SystemSetup();
+        }
+
+        private void SystemSetup()
+        {
             _systemsUpdate?.ConvertScene();
 
             OneFrame();
@@ -60,8 +70,9 @@ namespace Assets.Code.ECS
 
         private void Inject()
         {
-            _systemsUpdate?.Inject(_fire);
-            _systemsUpdate?.Inject(_skillsConfig);
+            _systemsUpdate?.Inject(_fire)
+            .Inject(_effectConfig)
+            .Inject(_burningParticlePool);
         }
 
         private void Update()
