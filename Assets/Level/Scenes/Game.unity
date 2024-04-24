@@ -253,6 +253,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -326,6 +331,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -519,6 +529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -593,6 +608,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -666,6 +686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -774,6 +799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -847,6 +877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -922,6 +957,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -995,6 +1035,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1070,6 +1115,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1143,6 +1193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1390,6 +1445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1463,6 +1523,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1538,6 +1603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1612,6 +1682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1685,6 +1760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1878,6 +1958,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1951,6 +2036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2026,6 +2116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2099,6 +2194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2174,6 +2274,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2247,6 +2352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2322,6 +2432,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2395,6 +2510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2470,6 +2590,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2543,6 +2668,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2618,6 +2748,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2691,6 +2826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2766,6 +2906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2840,6 +2985,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2913,6 +3063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3037,6 +3192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3110,6 +3270,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3185,6 +3350,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3259,6 +3429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3332,6 +3507,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3544,6 +3724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3618,6 +3803,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3691,6 +3881,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (46)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3772,6 +3967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3845,6 +4045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3920,6 +4125,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3994,6 +4204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4067,6 +4282,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4336,6 +4556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4409,6 +4634,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4484,6 +4714,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4557,6 +4792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4783,6 +5023,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4857,6 +5102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4930,6 +5180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5182,6 +5437,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5255,6 +5515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5330,6 +5595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5404,6 +5674,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5477,6 +5752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5630,6 +5910,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5703,6 +5988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5778,6 +6068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burn Cube (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5851,6 +6146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burn Cube (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6868694051765172781, guid: f7b815aee7d92e346b369df271e0feca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,4 +1,5 @@
 using UnityEngine;
+
 public struct BurningComponent
 {
     public Transform burningObject;

@@ -6,7 +6,8 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
 {
     internal class InitSoggySystem : IEcsRunSystem
     {
-        private readonly EcsFilter<WetComponent, WetTriggerComponent>.Exclude<SoggyComponent> _filter;
+        private readonly EcsFilter<WetComponent, WetTriggerComponent>
+            .Exclude<SoggyComponent, SteamComponent> _filter;
 
         private readonly EffectConfig _config;
         private readonly HydroParticlePool _hydroParticlePool;

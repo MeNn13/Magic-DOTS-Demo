@@ -14,7 +14,7 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
             foreach (var i in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(i);
-                ref SoggyComponent soggy = ref entity.Get<SoggyComponent>();
+                ref SoggyComponent soggy = ref _filter.Get1(i);
 
                 if (soggy.duration >= 0)
                 {

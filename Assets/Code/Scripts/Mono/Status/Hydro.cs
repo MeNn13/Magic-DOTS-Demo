@@ -11,7 +11,10 @@ namespace Assets.Code.Scripts.Mono.Status
             if (other.TryGetComponent(out EntityReference reference))
             {
                 EcsEntity entity = reference.Entity;
-                if (entity.Has<WetComponent>())
+                if (entity.Has<WetComponent>() 
+                    && !entity.Has<WetTriggerComponent>()
+                    && !entity.Has<SteamComponent>()
+                    && !entity.Has<SoggyComponent>())
                     entity.Get<WetTriggerComponent>().collider = other;
             }
         }

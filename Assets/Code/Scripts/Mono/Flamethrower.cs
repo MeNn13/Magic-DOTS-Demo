@@ -1,9 +1,5 @@
 ﻿using Assets.Code.ECS.EntityRef;
 using Leopotam.Ecs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace Assets.Code.Scripts.Mono

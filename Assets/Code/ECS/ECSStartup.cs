@@ -10,6 +10,7 @@ using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
 using Assets.Code.ECS.Status.Hydro.Soggy;
+using Assets.Code.ECS.Status.Combine.Steam;
 
 namespace Assets.Code.ECS
 {
@@ -24,7 +25,7 @@ namespace Assets.Code.ECS
 
         private PyroParticlePool _pyroParticlePool;
         private HydroParticlePool _hydroParticlePool;
-
+        private SteamParticlePool _steamParticlePool;
         private void Awake()
         {
             _world = new();
@@ -33,6 +34,7 @@ namespace Assets.Code.ECS
 
             _pyroParticlePool = new(_effectConfig.BurningData.Particle, 50, "Pyro Pool");
             _hydroParticlePool = new(_effectConfig.SoggyData.Particle, 50, "Hydro Pool");
+            _steamParticlePool = new(_effectConfig.SteamData.Particle, 10, "Steam Pool");
 
             SystemSetup();
         }
@@ -65,7 +67,9 @@ namespace Assets.Code.ECS
                 .Add(new BurnSystem())
                 .Add(new BurningSystem())
                 .Add(new InitSoggySystem())
-                .Add(new SoggySystem());
+                .Add(new SoggySystem())
+                .Add(new InitSteamSystem())
+                .Add(new SteamSystem());
         }
 
         private void AddFixedSystems()
@@ -78,7 +82,8 @@ namespace Assets.Code.ECS
             _systemsUpdate?.Inject(_fire)
             .Inject(_effectConfig)
             .Inject(_pyroParticlePool)
-            .Inject(_hydroParticlePool);
+            .Inject(_hydroParticlePool)
+            .Inject(_steamParticlePool);
         }
 
         private void Update()

@@ -11,7 +11,10 @@ namespace Assets.Code.Scripts.Mono.Status
             if (other.TryGetComponent(out EntityReference reference))
             {
                 EcsEntity entity = reference.Entity;
-                if (entity.Has<BurnableComponent>())
+                if (entity.Has<BurnableComponent>()
+                    && !entity.Has<BurnTriggerComponent>()
+                    && !entity.Has<SteamComponent>()
+                    && !entity.Has<BurningComponent>())
                     entity.Get<BurnTriggerComponent>().collider = other;
             }
         }

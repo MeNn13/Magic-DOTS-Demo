@@ -6,7 +6,9 @@ namespace Assets.Code.ECS.Status.Pyro
 {
     internal class BurnSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<BurnableComponent, BurnTriggerComponent>.Exclude<BurningComponent> _filter;
+        private readonly EcsFilter<BurnableComponent, BurnTriggerComponent>
+            .Exclude<BurningComponent, SteamComponent> _filter;
+
         private readonly EffectConfig _config;
         private readonly PyroParticlePool _burnParticlePool;
 
@@ -26,16 +28,16 @@ namespace Assets.Code.ECS.Status.Pyro
                 burning.multiplyDamage = _effect.MultiplyDamage;
                 burning.burningTime = _effect.Duration;
 
-                ParticleSetup(ref burning, ref burnObject);
+                ParticleSetup(ref burning);
 
                 entity.Del<BurnTriggerComponent>();
             }
         }
 
-        private void ParticleSetup(ref BurningComponent burning, ref BurnTriggerComponent burnTrigger)
+        private void ParticleSetup(ref BurningComponent burning)
         {
             ParticleSystem particle = _burnParticlePool.Get();
-            particle.transform.parent = burnTrigger.collider.transform;
+            particle.transform.parent = burning.burningObject.transform;
             particle.transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
