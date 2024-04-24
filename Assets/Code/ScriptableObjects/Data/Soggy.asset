@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe455809306e8004384091801ebab078, type: 3}
-  m_Name: Effect Config
+  m_Script: {fileID: 11500000, guid: 27f669b53d52fa8499e430a4fb0d8974, type: 3}
+  m_Name: Soggy
   m_EditorClassIdentifier: 
-  _burningData: {fileID: 11400000, guid: ad29aa6e63cba1e47bed0b32c27016fe, type: 2}
-  _soggyData: {fileID: 11400000, guid: 18634ec23051b474ba7025bbb2572202, type: 2}
+  _particle: {fileID: 215206228346224913, guid: 27a7edb87c9e3a843a25a809c3d777b5,
+    type: 3}
+  _duration: 5
+  _multiplyDamage: 0

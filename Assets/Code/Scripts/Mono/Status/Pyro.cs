@@ -2,9 +2,9 @@ using Assets.Code.ECS.EntityRef;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.Scripts.Mono
+namespace Assets.Code.Scripts.Mono.Status
 {
-    public class Ignition : MonoBehaviour
+    public class Pyro : MonoBehaviour
     {
         private void OnTriggerStay(Collider other)
         {

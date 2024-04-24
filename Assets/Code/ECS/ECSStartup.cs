@@ -3,12 +3,13 @@ using Assets.Code.ECS.EntityReference;
 using Assets.Code.ECS.Health;
 using Assets.Code.ECS.Input;
 using Assets.Code.ECS.Moveable;
-using Assets.Code.ECS.Skills.Fire;
-using Assets.Code.ECS.Skills.Fire.Burning;
-using Assets.Code.ECS.Skills.Pool;
+using Assets.Code.ECS.Status.Pyro;
+using Assets.Code.ECS.Status.Pyro.Burning;
+using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
+using Assets.Code.ECS.Status.Hydro.Soggy;
 
 namespace Assets.Code.ECS
 {
@@ -21,7 +22,8 @@ namespace Assets.Code.ECS
         private EcsSystems _systemsUpdate;
         private EcsSystems _systemsFixedUpdate;
 
-        private BurnParticlePool _burningParticlePool;
+        private PyroParticlePool _pyroParticlePool;
+        private HydroParticlePool _hydroParticlePool;
 
         private void Awake()
         {
@@ -29,7 +31,8 @@ namespace Assets.Code.ECS
             _systemsUpdate = new EcsSystems(_world);
             _systemsFixedUpdate = new EcsSystems(_world);
 
-            _burningParticlePool = new(_effectConfig.BurningData.Particle, 50, "Burning Pool");
+            _pyroParticlePool = new(_effectConfig.BurningData.Particle, 50, "Pyro Pool");
+            _hydroParticlePool = new(_effectConfig.SoggyData.Particle, 50, "Hydro Pool");
 
             SystemSetup();
         }
@@ -60,7 +63,9 @@ namespace Assets.Code.ECS
                 .Add(new HealthSystem())
                 .Add(new HealthBurningSystem())
                 .Add(new BurnSystem())
-                .Add(new BurningSystem());
+                .Add(new BurningSystem())
+                .Add(new InitSoggySystem())
+                .Add(new SoggySystem());
         }
 
         private void AddFixedSystems()
@@ -72,7 +77,8 @@ namespace Assets.Code.ECS
         {
             _systemsUpdate?.Inject(_fire)
             .Inject(_effectConfig)
-            .Inject(_burningParticlePool);
+            .Inject(_pyroParticlePool)
+            .Inject(_hydroParticlePool);
         }
 
         private void Update()

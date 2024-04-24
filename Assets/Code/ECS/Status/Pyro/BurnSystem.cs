@@ -1,14 +1,14 @@
-﻿using Assets.Code.ECS.Skills.Pool;
+﻿using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Skills.Fire
+namespace Assets.Code.ECS.Status.Pyro
 {
     internal class BurnSystem : IEcsRunSystem
     {
         private readonly EcsFilter<BurnableComponent, BurnTriggerComponent>.Exclude<BurningComponent> _filter;
         private readonly EffectConfig _config;
-        private readonly BurnParticlePool _burnParticlePool;
+        private readonly PyroParticlePool _burnParticlePool;
 
         private EffectData _effect => _config.BurningData;
 
@@ -24,7 +24,6 @@ namespace Assets.Code.ECS.Skills.Fire
 
                 burning.burningObject = burnObject.collider.gameObject.transform;
                 burning.multiplyDamage = _effect.MultiplyDamage;
-                burning.burningTime = _effect.Duration;
                 burning.burningTime = _effect.Duration;
 
                 ParticleSetup(ref burning, ref burnObject);

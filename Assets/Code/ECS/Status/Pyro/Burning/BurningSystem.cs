@@ -1,13 +1,13 @@
-using Assets.Code.ECS.Skills.Pool;
+using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Skills.Fire.Burning
+namespace Assets.Code.ECS.Status.Pyro.Burning
 {
     public class BurningSystem : IEcsRunSystem
     {
         private readonly EcsFilter<BurningComponent>.Exclude<HealthComponent> _filter;
-        private readonly BurnParticlePool _particlePool;
+        private readonly PyroParticlePool _particlePool;
 
         public void Run()
         {
