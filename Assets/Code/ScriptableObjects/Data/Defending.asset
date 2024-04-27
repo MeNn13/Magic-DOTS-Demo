@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Defending
   m_EditorClassIdentifier: 
   _particle: {fileID: 0}
-  _material: {fileID: 2100000, guid: 70c36c84f2a12ac4d9170c9e6b0e80d1, type: 2}
+  _materials:
+  - {fileID: 2100000, guid: 68512d95f75dc8e43ad5a4e246eca5e8, type: 2}
+  - {fileID: 2100000, guid: 156b020b3cc9b684aadd36540611bbee, type: 2}
   _duration: 7
   _defensePoints: 50

@@ -1,10 +1,13 @@
 ﻿using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
+using System;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Code.ECS.Status.Pyro
 {
-    internal class BurnSystem : IEcsRunSystem
+    internal class InitBurnSystem : IEcsRunSystem
     {
         private readonly EcsFilter<BurnableComponent, BurnTriggerComponent>
             .Exclude<BurningComponent, SteamComponent> _filter;
@@ -24,9 +27,9 @@ namespace Assets.Code.ECS.Status.Pyro
 
                 ref BurningComponent burning = ref entity.Get<BurningComponent>();
 
-                burning.burningObject = burnObject.collider.gameObject.transform;
-                burning.multiplyDamage = _effect.Damage;
-                burning.burningTime = _effect.Duration;
+                burning.objTransform = burnObject.collider.gameObject.transform;
+                burning.damage = _effect.Damage;
+                burning.duration = _effect.Duration;
 
                 ParticleSetup(ref burning);
 
@@ -37,14 +40,15 @@ namespace Assets.Code.ECS.Status.Pyro
         private void ParticleSetup(ref BurningComponent burning)
         {
             ParticleSystem particle = _burnParticlePool.Get();
-            particle.transform.parent = burning.burningObject.transform;
+
+            particle.transform.parent = burning.objTransform.transform;
             particle.transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
             shape.shapeType = ParticleSystemShapeType.Mesh;
-            shape.mesh = burning.burningObject.GetComponent<MeshFilter>().mesh;
+            shape.mesh = burning.objTransform.GetComponent<MeshFilter>().mesh;
 
-            burning.burningParticle = particle;
+            burning.particle = particle;
         }
     }
 }

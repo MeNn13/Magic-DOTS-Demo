@@ -79,7 +79,7 @@ namespace Assets.Code.ECS
 
         private void AddStatusSystems()
         {
-            _systemsUpdate.Add(new BurnSystem())
+            _systemsUpdate.Add(new InitBurnSystem())
                 .Add(new BurningSystem())
                 .Add(new InitSoggySystem())
                 .Add(new SoggySystem())

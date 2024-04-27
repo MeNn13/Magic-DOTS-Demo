@@ -23,15 +23,15 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
 
         private void TryDestroyObject(ref BurningComponent burning, ref EcsEntity entity)
         {
-            if (burning.burningTime <= 0)
+            if (burning.duration <= 0)
             {
-                _particlePool.Release(burning.burningParticle);
-                Object.Destroy(burning.burningObject.gameObject);
+                _particlePool.Release(burning.particle);
+                Object.Destroy(burning.objTransform.gameObject);
                 entity.Destroy();
             }
             else
             {
-                burning.burningTime -= Time.deltaTime;
+                burning.duration -= Time.deltaTime;
             }
         }
     }

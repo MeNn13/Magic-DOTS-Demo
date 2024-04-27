@@ -1,5 +1,6 @@
 ﻿using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Code.ECS.Status.Combine.Steam
@@ -31,12 +32,13 @@ namespace Assets.Code.ECS.Status.Combine.Steam
                 ParticleSetup(ref steam);
 
                 _hydroParticlePool.Release(soggy.particle);
-                _pyroParticlePool.Release(burning.burningParticle);
+                _pyroParticlePool.Release(burning.particle);
 
                 entity.Del<SoggyComponent>();
                 entity.Del<BurningComponent>();
             }
         }
+       
 
         private void ParticleSetup(ref SteamComponent steam)
         {

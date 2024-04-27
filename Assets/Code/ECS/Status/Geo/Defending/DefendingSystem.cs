@@ -45,8 +45,7 @@ namespace Assets.Code.ECS.Status.Geo.Defending
                 }
                 else
                 {
-                    MeshRenderer meshRenderer = component.objTransform.GetComponent<MeshRenderer>();
-                    meshRenderer.materials = component.previousMaterials;
+                    component.objTransform.GetComponent<MeshRenderer>().materials = component.previousMaterials;
 
                     ChangeHealthSlide(ref health, health.maxHealth, health.health,
                         _healthBackColor, _healthFillColor);

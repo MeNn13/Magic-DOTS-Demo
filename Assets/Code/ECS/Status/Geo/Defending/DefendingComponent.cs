@@ -4,7 +4,7 @@ public struct DefendingComponent
 {
     public Transform objTransform;
     public ParticleSystem particle;
-    public Material material;
+    public Material[] materials;
     public Material[] previousMaterials;
     public float duration;
     public float defensePoints;

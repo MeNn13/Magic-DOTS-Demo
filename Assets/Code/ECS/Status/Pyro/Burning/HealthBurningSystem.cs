@@ -25,16 +25,16 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
         private void TryTakeHealth(ref BurningComponent burning, ref HealthComponent health, 
             ref EcsEntity entity)
         {
-            if (burning.burningTime <= 0)
+            if (burning.duration <= 0)
             {
-                _particlePool.Release(burning.burningParticle);
+                _particlePool.Release(burning.particle);
                 entity.Del<BurningComponent>();
                 
                 return;
             }
 
-            burning.burningTime -= Time.deltaTime;
-            health.health -= burning.multiplyDamage * Time.deltaTime;
+            burning.duration -= Time.deltaTime;
+            health.health -= burning.damage * Time.deltaTime;
         }
     }
 }

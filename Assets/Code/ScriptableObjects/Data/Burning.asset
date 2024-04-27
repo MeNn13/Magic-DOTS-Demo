@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particle: {fileID: 4324737202212280017, guid: 2823aa85c5448da4fba67c48e39401f1,
     type: 3}
-  _material: {fileID: 0}
+  _materials:
+  - {fileID: 2100000, guid: 75d515480dac02a4ba804ed6c6458161, type: 2}
   _duration: 3
   _damage: 7

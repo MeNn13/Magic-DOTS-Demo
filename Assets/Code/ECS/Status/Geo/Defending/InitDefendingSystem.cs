@@ -21,21 +21,21 @@ namespace Assets.Code.ECS.Status.Geo.Defending
 
                 component.objTransform = trigger.collider.gameObject.transform;
                 component.particle = _effect.Particle;
-                component.material = _effect.Material;
                 component.defensePoints = _effect.DefensePoints;
                 component.duration = _effect.Duration;
 
-                MaterialSetup(ref component);
+                MaterialSetup(ref component, _effect.Materials);
 
                 entity.Del<DefendTriggerComponent>();
             }
         }
 
-        private static void MaterialSetup(ref DefendingComponent component)
+        private static void MaterialSetup(ref DefendingComponent component, Material[] materials)
         {
+            component.materials = materials;
             MeshRenderer meshRenderer = component.objTransform.GetComponent<MeshRenderer>();
             component.previousMaterials = meshRenderer.materials;
-            meshRenderer.material = component.material;
+            meshRenderer.materials = component.materials;
         }
     }
 }

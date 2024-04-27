@@ -26,16 +26,16 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
         private void TryTakeDefensePoint(ref BurningComponent burning, ref DefendingComponent defensePoint,
             ref EcsEntity entity)
         {
-            if (burning.burningTime <= 0)
+            if (burning.duration <= 0)
             {
-                _particlePool.Release(burning.burningParticle);
+                _particlePool.Release(burning.particle);
                 entity.Del<BurningComponent>();
 
                 return;
             }
 
-            burning.burningTime -= Time.deltaTime;
-            defensePoint.defensePoints -= burning.multiplyDamage * Time.deltaTime;
+            burning.duration -= Time.deltaTime;
+            defensePoint.defensePoints -= burning.damage * Time.deltaTime;
         }
     }
 }
