@@ -6,7 +6,8 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
 {
     public class BurningSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<BurningComponent>.Exclude<HealthComponent> _filter;
+        private readonly EcsFilter<BurningComponent>
+            .Exclude<HealthComponent, SkillComponent> _filter;
         private readonly PyroParticlePool _particlePool;
 
         public void Run()

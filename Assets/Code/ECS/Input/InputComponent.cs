@@ -8,5 +8,9 @@ namespace Assets.Code.ECS.Input
     {
         public Vector2 move;
         public bool isAttacking;
+        public bool isPyro;
+        public bool isHydro;
+        public bool isVento;
+        public bool isGeo;
     }
 }

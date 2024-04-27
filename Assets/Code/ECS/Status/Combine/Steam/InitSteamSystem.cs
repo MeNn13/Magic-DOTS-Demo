@@ -7,7 +7,7 @@ namespace Assets.Code.ECS.Status.Combine.Steam
     internal class InitSteamSystem : IEcsRunSystem
     {
         private readonly EcsFilter<SoggyComponent, BurningComponent>
-            .Exclude<SteamComponent> _filter;
+            .Exclude<SteamComponent, SkillComponent> _filter;
 
         private readonly EffectConfig _config;
         private readonly SteamParticlePool _steamParticlePool;

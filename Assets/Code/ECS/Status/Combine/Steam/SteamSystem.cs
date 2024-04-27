@@ -6,7 +6,9 @@ namespace Assets.Code.ECS.Status.Combine.Steam
 {
     internal class SteamSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<SteamComponent> _filter;
+        private readonly EcsFilter<SteamComponent>
+            .Exclude<SkillComponent> _filter;
+
         private readonly SteamParticlePool _steamParticlePool;
 
         public void Run()

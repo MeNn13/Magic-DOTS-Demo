@@ -44,6 +44,42 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pyro Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""b458b5ed-85e7-4c1f-9c86-b3cca77d947a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hydro Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""f61a242c-972f-4471-bd6f-0f2855cd5978"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Vento Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""36518133-7eb3-4d20-8e91-01048843d484"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Geo Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b87bc3f-1107-4ba0-b6cc-e95181221c57"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +148,50 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf3edbb3-c06d-4f59-9a69-0df6950563b6"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pyro Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4431c224-d1db-4c91-9316-df7667bb6da9"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hydro Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""66dc4d4c-347d-4d0c-adf3-57b0cba703f8"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Vento Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""51aff1c2-1e8a-4470-838b-3019c65557f9"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Geo Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +202,10 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
         m_Character = asset.FindActionMap("Character", throwIfNotFound: true);
         m_Character_Move = m_Character.FindAction("Move", throwIfNotFound: true);
         m_Character_Attack = m_Character.FindAction("Attack", throwIfNotFound: true);
+        m_Character_PyroSkill = m_Character.FindAction("Pyro Skill", throwIfNotFound: true);
+        m_Character_HydroSkill = m_Character.FindAction("Hydro Skill", throwIfNotFound: true);
+        m_Character_VentoSkill = m_Character.FindAction("Vento Skill", throwIfNotFound: true);
+        m_Character_GeoSkill = m_Character.FindAction("Geo Skill", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +269,20 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
     private List<ICharacterActions> m_CharacterActionsCallbackInterfaces = new List<ICharacterActions>();
     private readonly InputAction m_Character_Move;
     private readonly InputAction m_Character_Attack;
+    private readonly InputAction m_Character_PyroSkill;
+    private readonly InputAction m_Character_HydroSkill;
+    private readonly InputAction m_Character_VentoSkill;
+    private readonly InputAction m_Character_GeoSkill;
     public struct CharacterActions
     {
         private @InputHandler m_Wrapper;
         public CharacterActions(@InputHandler wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Character_Move;
         public InputAction @Attack => m_Wrapper.m_Character_Attack;
+        public InputAction @PyroSkill => m_Wrapper.m_Character_PyroSkill;
+        public InputAction @HydroSkill => m_Wrapper.m_Character_HydroSkill;
+        public InputAction @VentoSkill => m_Wrapper.m_Character_VentoSkill;
+        public InputAction @GeoSkill => m_Wrapper.m_Character_GeoSkill;
         public InputActionMap Get() { return m_Wrapper.m_Character; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +298,18 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @PyroSkill.started += instance.OnPyroSkill;
+            @PyroSkill.performed += instance.OnPyroSkill;
+            @PyroSkill.canceled += instance.OnPyroSkill;
+            @HydroSkill.started += instance.OnHydroSkill;
+            @HydroSkill.performed += instance.OnHydroSkill;
+            @HydroSkill.canceled += instance.OnHydroSkill;
+            @VentoSkill.started += instance.OnVentoSkill;
+            @VentoSkill.performed += instance.OnVentoSkill;
+            @VentoSkill.canceled += instance.OnVentoSkill;
+            @GeoSkill.started += instance.OnGeoSkill;
+            @GeoSkill.performed += instance.OnGeoSkill;
+            @GeoSkill.canceled += instance.OnGeoSkill;
         }
 
         private void UnregisterCallbacks(ICharacterActions instance)
@@ -216,6 +320,18 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @PyroSkill.started -= instance.OnPyroSkill;
+            @PyroSkill.performed -= instance.OnPyroSkill;
+            @PyroSkill.canceled -= instance.OnPyroSkill;
+            @HydroSkill.started -= instance.OnHydroSkill;
+            @HydroSkill.performed -= instance.OnHydroSkill;
+            @HydroSkill.canceled -= instance.OnHydroSkill;
+            @VentoSkill.started -= instance.OnVentoSkill;
+            @VentoSkill.performed -= instance.OnVentoSkill;
+            @VentoSkill.canceled -= instance.OnVentoSkill;
+            @GeoSkill.started -= instance.OnGeoSkill;
+            @GeoSkill.performed -= instance.OnGeoSkill;
+            @GeoSkill.canceled -= instance.OnGeoSkill;
         }
 
         public void RemoveCallbacks(ICharacterActions instance)
@@ -237,5 +353,9 @@ public partial class @InputHandler: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnPyroSkill(InputAction.CallbackContext context);
+        void OnHydroSkill(InputAction.CallbackContext context);
+        void OnVentoSkill(InputAction.CallbackContext context);
+        void OnGeoSkill(InputAction.CallbackContext context);
     }
 }

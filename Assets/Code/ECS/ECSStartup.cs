@@ -1,5 +1,5 @@
 ﻿using Assets.Code.ECS.Attack;
-using Assets.Code.ECS.EntityReference;
+using Assets.Code.ECS.EntityRef;
 using Assets.Code.ECS.Health;
 using Assets.Code.ECS.Input;
 using Assets.Code.ECS.Moveable;
@@ -11,6 +11,9 @@ using UnityEngine;
 using Voody.UniLeo;
 using Assets.Code.ECS.Status.Hydro.Soggy;
 using Assets.Code.ECS.Status.Combine.Steam;
+using Assets.Code.ECS.Skill.Mono;
+using Assets.Code.ECS.Skill;
+using Assets.Code.ECS.Skill.Cooldown;
 
 namespace Assets.Code.ECS
 {
@@ -18,6 +21,7 @@ namespace Assets.Code.ECS
     {
         [SerializeField] private ParticleSystem _fire;
         [SerializeField] private EffectConfig _effectConfig;
+        [SerializeField] private SkillUI _skillUI;
 
         private EcsWorld _world;
         private EcsSystems _systemsUpdate;
@@ -26,6 +30,7 @@ namespace Assets.Code.ECS
         private PyroParticlePool _pyroParticlePool;
         private HydroParticlePool _hydroParticlePool;
         private SteamParticlePool _steamParticlePool;
+
         private void Awake()
         {
             _world = new();
@@ -69,7 +74,10 @@ namespace Assets.Code.ECS
                 .Add(new InitSoggySystem())
                 .Add(new SoggySystem())
                 .Add(new InitSteamSystem())
-                .Add(new SteamSystem());
+                .Add(new SteamSystem())
+                .Add(new InitSkillSystem())
+                .Add(new SkillSystem())
+                .Add(new SkillCooldownSystem());
         }
 
         private void AddFixedSystems()
@@ -83,7 +91,8 @@ namespace Assets.Code.ECS
             .Inject(_effectConfig)
             .Inject(_pyroParticlePool)
             .Inject(_hydroParticlePool)
-            .Inject(_steamParticlePool);
+            .Inject(_steamParticlePool)
+            .Inject(_skillUI);
         }
 
         private void Update()

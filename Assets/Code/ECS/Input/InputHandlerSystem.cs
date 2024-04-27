@@ -5,7 +5,6 @@ namespace Assets.Code.ECS.Input
 {
     internal class InputHandlerSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
-        private readonly EcsWorld _world;
         private readonly EcsFilter<InputComponent> _filter;
         private InputHandler _inputActions;
 
@@ -29,7 +28,12 @@ namespace Assets.Code.ECS.Input
                 ref InputComponent input = ref _filter.Get1(i);
 
                 input.move = _inputActions.Character.Move.ReadValue<Vector2>();
+
                 input.isAttacking = _inputActions.Character.Attack.IsPressed();
+                input.isPyro = _inputActions.Character.PyroSkill.IsPressed();
+                input.isHydro = _inputActions.Character.HydroSkill.IsPressed();
+                input.isVento = _inputActions.Character.VentoSkill.IsPressed();
+                input.isGeo = _inputActions.Character.GeoSkill.IsPressed();
             }
         }
     }
