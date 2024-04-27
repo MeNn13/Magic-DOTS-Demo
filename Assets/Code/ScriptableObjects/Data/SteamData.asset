@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27f669b53d52fa8499e430a4fb0d8974, type: 3}
-  m_Name: Soggy
+  m_Name: SteamData
   m_EditorClassIdentifier: 
-  _particle: {fileID: 215206228346224913, guid: 27a7edb87c9e3a843a25a809c3d777b5,
+  _particle: {fileID: 8585797314872449502, guid: 11bb640f15c04f24098f964b91cc037b,
     type: 3}
   _material: {fileID: 0}
-  _duration: 3
+  _duration: 1

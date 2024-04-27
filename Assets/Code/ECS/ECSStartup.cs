@@ -14,6 +14,8 @@ using Assets.Code.ECS.Status.Combine.Steam;
 using Assets.Code.ECS.Skill.Mono;
 using Assets.Code.ECS.Skill;
 using Assets.Code.ECS.Skill.Cooldown;
+using System.Runtime.CompilerServices;
+using Assets.Code.ECS.Status.Geo.Defending;
 
 namespace Assets.Code.ECS
 {
@@ -50,6 +52,7 @@ namespace Assets.Code.ECS
 
             OneFrame();
             AddSystems();
+            AddStatusSystems();
             AddFixedSystems();
             Inject();
 
@@ -69,15 +72,22 @@ namespace Assets.Code.ECS
                 .Add(new InputAttackSystem())
                 .Add(new HealthSystem())
                 .Add(new HealthBurningSystem())
-                .Add(new BurnSystem())
+                .Add(new InitSkillSystem())
+                .Add(new SkillSystem())
+                .Add(new SkillCooldownSystem());
+        }
+
+        private void AddStatusSystems()
+        {
+            _systemsUpdate.Add(new BurnSystem())
                 .Add(new BurningSystem())
                 .Add(new InitSoggySystem())
                 .Add(new SoggySystem())
                 .Add(new InitSteamSystem())
                 .Add(new SteamSystem())
-                .Add(new InitSkillSystem())
-                .Add(new SkillSystem())
-                .Add(new SkillCooldownSystem());
+                .Add(new InitDefendingSystem())
+                .Add(new DefendingSystem())
+                .Add(new DefendBurningSystem());
         }
 
         private void AddFixedSystems()

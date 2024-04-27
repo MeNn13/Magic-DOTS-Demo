@@ -12,7 +12,7 @@ namespace Assets.Code.ECS.Status.Pyro
         private readonly EffectConfig _config;
         private readonly PyroParticlePool _burnParticlePool;
 
-        private EffectData _effect => _config.BurningData;
+        private AttackEffectData _effect => _config.BurningData as AttackEffectData;
 
         public void Run()
         {
@@ -25,7 +25,7 @@ namespace Assets.Code.ECS.Status.Pyro
                 ref BurningComponent burning = ref entity.Get<BurningComponent>();
 
                 burning.burningObject = burnObject.collider.gameObject.transform;
-                burning.multiplyDamage = _effect.MultiplyDamage;
+                burning.multiplyDamage = _effect.Damage;
                 burning.burningTime = _effect.Duration;
 
                 ParticleSetup(ref burning);

@@ -26,7 +26,6 @@ namespace Assets.Code.ECS.Status.Combine.Steam
                 ref SteamComponent steam = ref entity.Get<SteamComponent>();
 
                 steam.objTransform = soggy.objTransform.gameObject.transform;
-                steam.multiplyDamage = _effect.MultiplyDamage;
                 steam.duration = _effect.Duration;
 
                 ParticleSetup(ref steam);

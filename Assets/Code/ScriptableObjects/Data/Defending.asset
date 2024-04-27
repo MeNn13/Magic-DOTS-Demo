@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27f669b53d52fa8499e430a4fb0d8974, type: 3}
-  m_Name: Steam
+  m_Script: {fileID: 11500000, guid: fa0da29cfac364543b9c28ef4a4fa27f, type: 3}
+  m_Name: Defending
   m_EditorClassIdentifier: 
-  _particle: {fileID: 8585797314872449502, guid: 11bb640f15c04f24098f964b91cc037b,
-    type: 3}
-  _duration: 1
-  _multiplyDamage: 0
+  _particle: {fileID: 0}
+  _material: {fileID: 2100000, guid: 70c36c84f2a12ac4d9170c9e6b0e80d1, type: 2}
+  _duration: 7
+  _defensePoints: 50

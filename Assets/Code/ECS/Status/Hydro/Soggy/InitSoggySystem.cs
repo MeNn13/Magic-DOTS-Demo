@@ -19,13 +19,11 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
             foreach (var i in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(i);
-                ref WetComponent wet = ref _filter.Get1(i);
                 ref WetTriggerComponent wetObject = ref _filter.Get2(i);
 
                 ref SoggyComponent soggy = ref entity.Get<SoggyComponent>();
 
                 soggy.objTransform = wetObject.collider.gameObject.transform;
-                soggy.multiplyDamage = _effect.MultiplyDamage;
                 soggy.duration = _effect.Duration;
 
                 ParticleSetup(ref soggy, ref wetObject);

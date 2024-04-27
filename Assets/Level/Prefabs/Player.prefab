@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 45761723552820409}
   - component: {fileID: 37314710743707950}
   - component: {fileID: 8550610611076392263}
+  - component: {fileID: 8808332986209808786}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -356,6 +357,10 @@ MonoBehaviour:
   value:
     move: {x: 0, y: 0}
     isAttacking: 0
+    isPyro: 0
+    isHydro: 0
+    isVento: 0
+    isGeo: 0
 --- !u!114 &5613661640141435211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +455,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2327605f49ef58f469de956793f59a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8808332986209808786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7988200084341611212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc01e3a658ddd34b93a60b42ee06418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7980824786382348541
