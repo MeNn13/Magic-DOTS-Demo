@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5584389126614506958}
   - component: {fileID: 3878474978148327563}
   - component: {fileID: 6077408974047964961}
+  - component: {fileID: 4059427223622171914}
   m_Layer: 5
   m_Name: Health UI
   m_TagString: Untagged
@@ -177,6 +178,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4059427223622171914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509232795231369746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19a1634a8d8561b4bb6178058f0ff083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthSlider: {fileID: 8568051617513405176}
+  _background: {fileID: 5537280982201898774}
+  _fill: {fileID: 942165479637589428}
 --- !u!1 &4454532031488252945
 GameObject:
   m_ObjectHideFlags: 0
