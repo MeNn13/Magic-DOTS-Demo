@@ -1,4 +1,4 @@
-﻿using Assets.Code.ECS.Input;
+﻿using Code.ECS.Input;
 using Leopotam.Ecs;
 using UnityEngine;
 

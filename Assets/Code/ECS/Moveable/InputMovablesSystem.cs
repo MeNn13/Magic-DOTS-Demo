@@ -1,10 +1,11 @@
-﻿using Assets.Code.ECS.Input;
+﻿using Assets.Code.ECS.Moveable;
+using Code.ECS.Input;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Moveable
+namespace Code.ECS.Moveable
 {
-    public class InputMoveableSystem : IEcsRunSystem, IEcsInitSystem
+    public class InputMovablesSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilter<InputComponent, MoveableComponent> _filter;
         private Rigidbody _rb;

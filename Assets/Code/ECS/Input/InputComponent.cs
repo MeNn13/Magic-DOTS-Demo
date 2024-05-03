@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Input
+namespace Code.ECS.Input
 {
     [Serializable]
     public struct InputComponent

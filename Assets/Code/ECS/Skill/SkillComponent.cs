@@ -1,7 +1,13 @@
 using UnityEngine;
-
-public struct SkillComponent
+namespace Code.ECS.Skill
 {
-    public Transform transform;
-    public float duration;
+    public struct SkillComponent
+    {
+        public Transform Transform;
+        public float Duration;
+        public byte PyroCount;
+        public byte HydroCount;
+        public byte VentoCount;
+        public byte GeoCount;
+    }
 }

@@ -1,1 +1,4 @@
-public struct SkillContainerComponent { }
+namespace Code.ECS.Skill
+{
+    public struct SkillContainerComponent { }
+}

@@ -1,4 +1,4 @@
 public struct SkillCooldownComponent
 {
-    public float cooldown;
+    public float Cooldown;
 }

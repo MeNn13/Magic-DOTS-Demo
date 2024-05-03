@@ -1,7 +1,7 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Input
+namespace Code.ECS.Input
 {
     internal class InputHandlerSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
@@ -30,10 +30,10 @@ namespace Assets.Code.ECS.Input
                 input.move = _inputActions.Character.Move.ReadValue<Vector2>();
 
                 input.isAttacking = _inputActions.Character.Attack.IsPressed();
-                input.isPyro = _inputActions.Character.PyroSkill.IsPressed();
-                input.isHydro = _inputActions.Character.HydroSkill.IsPressed();
-                input.isVento = _inputActions.Character.VentoSkill.IsPressed();
-                input.isGeo = _inputActions.Character.GeoSkill.IsPressed();
+                input.isPyro = _inputActions.Character.PyroSkill.WasPressedThisFrame();
+                input.isHydro = _inputActions.Character.HydroSkill.WasPressedThisFrame();
+                input.isVento = _inputActions.Character.VentoSkill.WasPressedThisFrame();
+                input.isGeo = _inputActions.Character.GeoSkill.WasPressedThisFrame();
             }
         }
     }

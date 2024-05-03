@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Leopotam.Ecs;
 using Assets.Code.ECS.Status.Pool;
+using Code.ECS.Skill;
 
 namespace Assets.Code.ECS.Status.Hydro.Soggy
 {

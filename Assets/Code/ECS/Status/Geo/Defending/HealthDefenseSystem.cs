@@ -1,15 +1,14 @@
-﻿using Assets.Code.Scripts.View;
-using Leopotam.Ecs;
+﻿using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Assets.Code.ECS.Status.Geo.Defending
 {
-    internal class DefendingSystem : IEcsRunSystem, IEcsInitSystem
+    internal class HealthDefenseSystem : IEcsRunSystem, IEcsInitSystem
     {
-        private readonly EcsFilter<DefendingComponent, HealthComponent> _filter;
-        private readonly EffectConfig _effectConfig;
+        private readonly EcsFilter<DefendingComponent, HealthComponent> _filter = null;
+        private readonly EffectConfig _effectConfig = null;
 
-        private DefendEffectData _effect => _effectConfig.DefendingData as DefendEffectData;
+        private DefendEffectData Effect => _effectConfig.DefendingData as DefendEffectData;
 
         private Color _healthFillColor;
         private Color _healthBackColor;
@@ -40,7 +39,7 @@ namespace Assets.Code.ECS.Status.Geo.Defending
                 {
                     component.duration -= Time.deltaTime;
 
-                    ChangeHealthSlide(ref health, _effect.DefensePoints, component.defensePoints,
+                    ChangeHealthSlide(ref health, Effect.DefensePoints, component.defensePoints,
                         _healthBackColor, _defendColor);
                 }
                 else

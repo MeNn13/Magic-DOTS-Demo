@@ -1,6 +1,7 @@
 ﻿using Assets.Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using System.Linq;
+using Code.ECS.Skill;
 using UnityEngine;
 
 namespace Assets.Code.ECS.Status.Combine.Steam

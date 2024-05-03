@@ -5071,10 +5071,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4fe4a171d1e4b46bcceeb26ee2fdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pyroIcon: {fileID: 1208060310}
-  _hydroIcon: {fileID: 1564311563}
-  _ventoIcon: {fileID: 1743319867}
-  _geoIcon: {fileID: 133248680}
+  pyroIcon: {fileID: 1208060310}
+  hydroIcon: {fileID: 1564311563}
+  ventoIcon: {fileID: 1743319867}
+  geoIcon: {fileID: 133248680}
+  duration: 0.1
 --- !u!1 &1434561709
 GameObject:
   m_ObjectHideFlags: 0
@@ -6792,9 +6793,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803db0ccd6d06ff47996fbf06271b2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fire: {fileID: 8654439699591722214, guid: ee1928735234aed40a05be6fef03c12a, type: 3}
-  _effectConfig: {fileID: 11400000, guid: ad1b4f645c731c742929620b72610f73, type: 2}
-  _skillUI: {fileID: 1383731545}
+  fire: {fileID: 8654439699591722214, guid: ee1928735234aed40a05be6fef03c12a, type: 3}
+  effectConfig: {fileID: 11400000, guid: ad1b4f645c731c742929620b72610f73, type: 2}
+  skillUI: {fileID: 1383731545}
 --- !u!1001 &2094766552
 PrefabInstance:
   m_ObjectHideFlags: 0

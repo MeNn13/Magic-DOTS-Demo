@@ -1,30 +1,29 @@
 ﻿using Assets.Code.ECS.Attack;
 using Assets.Code.ECS.EntityRef;
 using Assets.Code.ECS.Health;
-using Assets.Code.ECS.Input;
-using Assets.Code.ECS.Moveable;
+using Assets.Code.ECS.Status.Combine.Steam;
+using Assets.Code.ECS.Status.Geo.Defending;
+using Assets.Code.ECS.Status.Hydro.Soggy;
+using Assets.Code.ECS.Status.Pool;
 using Assets.Code.ECS.Status.Pyro;
 using Assets.Code.ECS.Status.Pyro.Burning;
-using Assets.Code.ECS.Status.Pool;
+using Code.ECS.Input;
+using Code.ECS.Moveable;
+using Code.ECS.Skill;
+using Code.ECS.Skill.Cooldown;
+using Code.ECS.Skill.Mono;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
-using Assets.Code.ECS.Status.Hydro.Soggy;
-using Assets.Code.ECS.Status.Combine.Steam;
-using Assets.Code.ECS.Skill.Mono;
-using Assets.Code.ECS.Skill;
-using Assets.Code.ECS.Skill.Cooldown;
-using System.Runtime.CompilerServices;
-using Assets.Code.ECS.Status.Geo.Defending;
 
-namespace Assets.Code.ECS
+namespace Code.ECS
 {
-    internal class ECSStartup : MonoBehaviour
+    internal class EcsStartup : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem _fire;
-        [SerializeField] private EffectConfig _effectConfig;
-        [SerializeField] private SkillUI _skillUI;
-
+        [SerializeField] private ParticleSystem fire;
+        [SerializeField] private EffectConfig effectConfig;
+        [SerializeField] private SkillUI skillUI;
+        
         private EcsWorld _world;
         private EcsSystems _systemsUpdate;
         private EcsSystems _systemsFixedUpdate;
@@ -35,13 +34,13 @@ namespace Assets.Code.ECS
 
         private void Awake()
         {
-            _world = new();
-            _systemsUpdate = new EcsSystems(_world);
-            _systemsFixedUpdate = new EcsSystems(_world);
+            _world = new EcsWorld();
+            _systemsUpdate = new EcsSystems(world: _world);
+            _systemsFixedUpdate = new EcsSystems(world: _world);
 
-            _pyroParticlePool = new(_effectConfig.BurningData.Particle, 50, "Pyro Pool");
-            _hydroParticlePool = new(_effectConfig.SoggyData.Particle, 50, "Hydro Pool");
-            _steamParticlePool = new(_effectConfig.SteamData.Particle, 10, "Steam Pool");
+            _pyroParticlePool = new PyroParticlePool(prefab: effectConfig.BurningData.Particle, prewarmObjectCount: 50, poolName: "Pyro Pool");
+            _hydroParticlePool = new HydroParticlePool(prefab: effectConfig.SoggyData.Particle, prewarmObjectCount: 50, poolName: "Hydro Pool");
+            _steamParticlePool = new SteamParticlePool(prefab: effectConfig.SteamData.Particle, prewarmObjectCount: 10, poolName: "Steam Pool");
 
             SystemSetup();
         }
@@ -77,7 +76,7 @@ namespace Assets.Code.ECS
                 .Add(new SkillCooldownSystem());
         }
 
-        private void AddStatusSystems()
+        private void AddStatusSystems() 
         {
             _systemsUpdate.Add(new InitBurnSystem())
                 .Add(new BurningSystem())
@@ -86,23 +85,23 @@ namespace Assets.Code.ECS
                 .Add(new InitSteamSystem())
                 .Add(new SteamSystem())
                 .Add(new InitDefendingSystem())
-                .Add(new DefendingSystem())
+                .Add(new HealthDefenseSystem())
                 .Add(new DefendBurningSystem());
         }
 
         private void AddFixedSystems()
         {
-            _systemsFixedUpdate.Add(new InputMoveableSystem());
+            _systemsFixedUpdate.Add(new InputMovablesSystem());
         }
 
         private void Inject()
         {
-            _systemsUpdate?.Inject(_fire)
-            .Inject(_effectConfig)
-            .Inject(_pyroParticlePool)
-            .Inject(_hydroParticlePool)
-            .Inject(_steamParticlePool)
-            .Inject(_skillUI);
+            _systemsUpdate?.Inject(obj: fire)
+            .Inject(obj: effectConfig)
+            .Inject(obj: _pyroParticlePool)
+            .Inject(obj: _hydroParticlePool)
+            .Inject(obj: _steamParticlePool)
+            .Inject(obj: skillUI);
         }
 
         private void Update()
