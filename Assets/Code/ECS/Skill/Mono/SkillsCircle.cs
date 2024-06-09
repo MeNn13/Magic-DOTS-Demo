@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.ECS.Skill.Mono
 {
@@ -45,6 +44,5 @@ namespace Code.ECS.Skill.Mono
             aetherCircle.SetActive(value);
             geoCircle.SetActive(value);
         }
-
     }
 }

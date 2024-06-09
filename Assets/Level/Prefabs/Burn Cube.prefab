@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1772022070479616505}
   - component: {fileID: 3117240395823685005}
   - component: {fileID: -6215871934246036293}
-  - component: {fileID: 9195619708352333311}
   - component: {fileID: 4306353521184478234}
   - component: {fileID: 6426253684546401849}
+  - component: {fileID: 4671060524556055251}
   m_Layer: 0
   m_Name: Burn Cube
   m_TagString: Burnable
@@ -122,18 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   convertMode: 0
---- !u!114 &9195619708352333311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6868694051765172781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 544f56f2d5ac4094e886115798a19bd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4306353521184478234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,3 +148,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     reference: {fileID: 4306353521184478234}
+--- !u!114 &4671060524556055251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868694051765172781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544f56f2d5ac4094e886115798a19bd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,9 +1,10 @@
-using Assets.Code.ECS.Status.Pool;
+using Code.ECS.Health;
 using Code.ECS.Skill;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Pyro.Burning
+namespace Code.ECS.Status.Burning
 {
     public class BurningSystem : IEcsRunSystem
     {
@@ -24,15 +25,15 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
 
         private void TryDestroyObject(ref BurningComponent burning, ref EcsEntity entity)
         {
-            if (burning.duration <= 0)
+            if (burning.Duration <= 0)
             {
-                _particlePool.Release(burning.particle);
-                Object.Destroy(burning.objTransform.gameObject);
+                _particlePool.Release(burning.Particle);
+                Object.Destroy(burning.ObjTransform.gameObject);
                 entity.Destroy();
             }
             else
             {
-                burning.duration -= Time.deltaTime;
+                burning.Duration -= Time.deltaTime;
             }
         }
     }

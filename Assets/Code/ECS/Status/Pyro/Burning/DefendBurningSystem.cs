@@ -1,9 +1,10 @@
-﻿using Assets.Code.ECS.Status.Pool;
-using Code.ECS.Skill;
+﻿using Code.ECS.Skill;
+using Code.ECS.Status.Geo.Defending;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Pyro.Burning
+namespace Code.ECS.Status.Burning
 {
     internal class DefendBurningSystem : IEcsRunSystem
     {
@@ -27,16 +28,16 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
         private void TryTakeDefensePoint(ref BurningComponent burning, ref DefendingComponent defensePoint,
             ref EcsEntity entity)
         {
-            if (burning.duration <= 0)
+            if (burning.Duration <= 0)
             {
-                _particlePool.Release(burning.particle);
+                _particlePool.Release(burning.Particle);
                 entity.Del<BurningComponent>();
 
                 return;
             }
 
-            burning.duration -= Time.deltaTime;
-            defensePoint.defensePoints -= burning.damage * Time.deltaTime;
+            burning.Duration -= Time.deltaTime;
+            defensePoint.DefensePoints -= burning.Damage * Time.deltaTime;
         }
     }
 }

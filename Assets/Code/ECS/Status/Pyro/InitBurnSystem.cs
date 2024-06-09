@@ -1,11 +1,11 @@
-﻿using Assets.Code.ECS.Status.Pool;
+﻿using Code.ECS.Status.Burnable;
+using Code.ECS.Status.Burning;
+using Code.ECS.Status.Combine.Steam;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
-using System;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Pyro
+namespace Code.ECS.Status
 {
     internal class InitBurnSystem : IEcsRunSystem
     {
@@ -15,7 +15,7 @@ namespace Assets.Code.ECS.Status.Pyro
         private readonly EffectConfig _config;
         private readonly PyroParticlePool _burnParticlePool;
 
-        private AttackEffectData _effect => _config.BurningData as AttackEffectData;
+        private AttackEffectData Effect => _config.BurningData as AttackEffectData;
 
         public void Run()
         {
@@ -27,9 +27,9 @@ namespace Assets.Code.ECS.Status.Pyro
 
                 ref BurningComponent burning = ref entity.Get<BurningComponent>();
 
-                burning.objTransform = burnObject.collider.gameObject.transform;
-                burning.damage = _effect.Damage;
-                burning.duration = _effect.Duration;
+                burning.ObjTransform = burnObject.Collider.gameObject.transform;
+                burning.Damage = Effect.Damage;
+                burning.Duration = Effect.Duration;
 
                 ParticleSetup(ref burning);
 
@@ -41,14 +41,14 @@ namespace Assets.Code.ECS.Status.Pyro
         {
             ParticleSystem particle = _burnParticlePool.Get();
 
-            particle.transform.parent = burning.objTransform.transform;
+            particle.transform.parent = burning.ObjTransform.transform;
             particle.transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
             shape.shapeType = ParticleSystemShapeType.Mesh;
-            shape.mesh = burning.objTransform.GetComponent<MeshFilter>().mesh;
+            shape.mesh = burning.ObjTransform.GetComponent<MeshFilter>().mesh;
 
-            burning.particle = particle;
+            burning.Particle = particle;
         }
     }
 }

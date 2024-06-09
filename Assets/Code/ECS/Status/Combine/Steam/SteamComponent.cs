@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-
-public struct SteamComponent
+namespace Code.ECS.Status.Combine.Steam
 {
-    public Transform objTransform;
-    public ParticleSystem particle;
-    public float duration;
+    public struct SteamComponent
+    {
+        public Transform ObjTransform;
+        public ParticleSystem Particle;
+        public float Duration;
+    }
 }

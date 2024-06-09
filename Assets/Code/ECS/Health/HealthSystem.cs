@@ -1,7 +1,7 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Health
+namespace Code.ECS.Health
 {
     internal class HealthSystem : IEcsRunSystem, IEcsInitSystem
     {

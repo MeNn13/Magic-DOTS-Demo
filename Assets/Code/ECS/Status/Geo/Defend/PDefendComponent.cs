@@ -1,3 +1,6 @@
 ﻿using Voody.UniLeo;
 
-public sealed class PDefendComponent : MonoProvider<DefendComponent> { }
+namespace Code.ECS.Status.Geo.Defend
+{
+    public sealed class PDefendComponent : MonoProvider<DefendComponent> { }
+}

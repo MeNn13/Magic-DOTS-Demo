@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public struct BurningComponent
+namespace Code.ECS.Status.Burning
 {
-    public Transform objTransform;
-    public ParticleSystem particle;
-    public Material[] materials;
-    public Material[] previousMaterials;
-    public float duration;
-    public float damage;
+    public struct BurningComponent
+    {
+        public Transform ObjTransform;
+        public ParticleSystem Particle;
+        public Material[] Materials;
+        public Material[] PreviousMaterials;
+        public float Duration;
+        public float Damage;
+    }
 }

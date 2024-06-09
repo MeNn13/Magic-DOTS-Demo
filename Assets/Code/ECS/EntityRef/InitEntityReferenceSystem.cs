@@ -1,6 +1,6 @@
 ﻿using Leopotam.Ecs;
 
-namespace Assets.Code.ECS.EntityRef
+namespace Code.ECS.EntityRef
 {
     internal class InitEntityReferenceSystem : IEcsInitSystem
     {

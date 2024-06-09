@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public struct DefendTriggerComponent
+namespace Code.ECS.Status.Geo
 {
-    public Collider collider;
+    public struct DefendTriggerComponent
+    {
+        public Collider Collider;
+    }
 }

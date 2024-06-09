@@ -1,9 +1,9 @@
-﻿using Assets.Code.ECS.Status.Pool;
-using Code.ECS.Skill;
+﻿using Code.ECS.Skill;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Combine.Steam
+namespace Code.ECS.Status.Combine.Steam
 {
     internal class SteamSystem : IEcsRunSystem
     {
@@ -19,13 +19,13 @@ namespace Assets.Code.ECS.Status.Combine.Steam
                 ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref SteamComponent steam = ref _filter.Get1(i);
 
-                if (steam.duration >= 0)
+                if (steam.Duration >= 0)
                 {
-                    steam.duration -= Time.deltaTime;
+                    steam.Duration -= Time.deltaTime;
                 }
                 else
                 {
-                    _steamParticlePool.Release(steam.particle);
+                    _steamParticlePool.Release(steam.Particle);
                     entity.Del<SteamComponent>();
                 }
             }

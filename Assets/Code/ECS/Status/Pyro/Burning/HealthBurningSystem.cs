@@ -1,9 +1,11 @@
-﻿using Assets.Code.ECS.Status.Pool;
+﻿using Code.ECS.Health;
 using Code.ECS.Skill;
+using Code.ECS.Status.Geo.Defending;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Pyro.Burning
+namespace Code.ECS.Status.Burning
 {
     internal class HealthBurningSystem : IEcsRunSystem
     {
@@ -26,16 +28,16 @@ namespace Assets.Code.ECS.Status.Pyro.Burning
         private void TryTakeHealth(ref BurningComponent burning, ref HealthComponent health, 
             ref EcsEntity entity)
         {
-            if (burning.duration <= 0)
+            if (burning.Duration <= 0)
             {
-                _particlePool.Release(burning.particle);
+                _particlePool.Release(burning.Particle);
                 entity.Del<BurningComponent>();
                 
                 return;
             }
 
-            burning.duration -= Time.deltaTime;
-            health.health -= burning.damage * Time.deltaTime;
+            burning.Duration -= Time.deltaTime;
+            health.health -= burning.Damage * Time.deltaTime;
         }
     }
 }

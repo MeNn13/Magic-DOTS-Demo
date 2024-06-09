@@ -1,20 +1,19 @@
-﻿using Assets.Code.ECS.Moveable;
-using Code.ECS.Input;
+﻿using Code.ECS.Input;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Code.ECS.Moveable
+namespace Code.ECS.Movement
 {
     public class InputMovablesSystem : IEcsRunSystem, IEcsInitSystem
     {
-        private readonly EcsFilter<InputComponent, MoveableComponent> _filter;
+        private readonly EcsFilter<InputComponent, MovementComponent> _filter;
         private Rigidbody _rb;
 
         public void Init()
         {
             foreach (var i in _filter)
             {
-                ref MoveableComponent component = ref _filter.Get2(i);
+                ref MovementComponent component = ref _filter.Get2(i);
 
                 _rb = component.transform.GetComponent<Rigidbody>();
             }
@@ -25,7 +24,7 @@ namespace Code.ECS.Moveable
             foreach (var i in _filter)
             {
                 ref InputComponent input = ref _filter.Get1(i);
-                ref MoveableComponent move = ref _filter.Get2(i);
+                ref MovementComponent move = ref _filter.Get2(i);
 
                 Vector3 moveDirection = new(input.move.x, 0, input.move.y);
 

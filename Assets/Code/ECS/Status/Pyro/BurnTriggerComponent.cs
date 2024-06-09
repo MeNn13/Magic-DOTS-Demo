@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public struct BurnTriggerComponent
+namespace Code.ECS.Status
 {
-    public Collider collider;
+    public struct BurnTriggerComponent
+    {
+        public Collider Collider;
+    }
 }

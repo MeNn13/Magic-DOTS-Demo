@@ -1,11 +1,13 @@
 using UnityEngine;
-
-public struct DefendingComponent
+namespace Code.ECS.Status.Geo.Defending
 {
-    public Transform objTransform;
-    public ParticleSystem particle;
-    public Material[] materials;
-    public Material[] previousMaterials;
-    public float duration;
-    public float defensePoints;
+    public struct DefendingComponent
+    {
+        public Transform ObjTransform;
+        public ParticleSystem Particle;
+        public Material[] Materials;
+        public Material[] PreviousMaterials;
+        public float Duration;
+        public float DefensePoints;
+    }
 }

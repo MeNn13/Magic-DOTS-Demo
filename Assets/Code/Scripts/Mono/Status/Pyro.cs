@@ -1,4 +1,8 @@
-using Assets.Code.ECS.EntityRef;
+using Code.ECS.EntityRef.Mono;
+using Code.ECS.Status;
+using Code.ECS.Status.Burnable;
+using Code.ECS.Status.Burning;
+using Code.ECS.Status.Combine.Steam;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -15,7 +19,7 @@ namespace Assets.Code.Scripts.Mono.Status
                     && !entity.Has<BurnTriggerComponent>()
                     && !entity.Has<SteamComponent>()
                     && !entity.Has<BurningComponent>())
-                    entity.Get<BurnTriggerComponent>().collider = other;
+                    entity.Get<BurnTriggerComponent>().Collider = other;
             }
         }
     }

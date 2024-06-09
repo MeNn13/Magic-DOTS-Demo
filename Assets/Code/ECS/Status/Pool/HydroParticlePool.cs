@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Pool
+namespace Code.ECS.Status.Pool
 {
     internal class HydroParticlePool : ParticlePool
     {

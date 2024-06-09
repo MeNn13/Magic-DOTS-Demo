@@ -1,4 +1,6 @@
-﻿using Assets.Code.ECS.EntityRef;
+﻿using Code.ECS.EntityRef.Mono;
+using Code.ECS.Status;
+using Code.ECS.Status.Burnable;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -12,7 +14,7 @@ namespace Assets.Code.Scripts.Mono
             {
                 EcsEntity entity = reference.Entity;
                 if (entity.Has<BurnableComponent>())
-                    entity.Get<BurnTriggerComponent>().collider = other.GetComponent<Collider>();
+                    entity.Get<BurnTriggerComponent>().Collider = other.GetComponent<Collider>();
             }
         }
     }

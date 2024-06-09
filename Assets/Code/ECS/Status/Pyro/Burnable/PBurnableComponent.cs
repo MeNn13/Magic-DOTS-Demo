@@ -1,3 +1,6 @@
 ﻿using Voody.UniLeo;
 
-public sealed class PBurnableComponent : MonoProvider<BurnableComponent> { }
+namespace Code.ECS.Status.Burnable
+{
+    public sealed class PBurnableComponent : MonoProvider<BurnableComponent> { }
+}

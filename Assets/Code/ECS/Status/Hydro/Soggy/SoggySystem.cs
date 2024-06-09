@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using Code.ECS.Skill;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
-using Assets.Code.ECS.Status.Pool;
-using Code.ECS.Skill;
+using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Hydro.Soggy
+namespace Code.ECS.Status.Hydro.Soggy
 {
     internal class SoggySystem : IEcsRunSystem
     {
@@ -18,13 +18,13 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
                 ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref SoggyComponent soggy = ref _filter.Get1(i);
 
-                if (soggy.duration >= 0)
+                if (soggy.Duration >= 0)
                 {
-                    soggy.duration -= Time.deltaTime;
+                    soggy.Duration -= Time.deltaTime;
                 }
                 else
                 {
-                    _hydroParticlePool.Release(soggy.particle);
+                    _hydroParticlePool.Release(soggy.Particle);
                     entity.Del<SoggyComponent>();
                 }
             }

@@ -1,8 +1,12 @@
 using System;
 using UnityEngine;
 
-[Serializable]
-public struct AttackComponent
+namespace Code.ECS.Attack
 {
-    public Transform hand;
+    [Serializable]
+    public struct AttackComponent
+    {
+        public Transform hand;
+        public bool active;
+    }
 }

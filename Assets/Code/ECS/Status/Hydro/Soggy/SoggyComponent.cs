@@ -1,10 +1,12 @@
 using UnityEngine;
-
-public struct SoggyComponent 
+namespace Code.ECS.Status.Hydro.Soggy
 {
-    public Transform objTransform;
-    public ParticleSystem particle;
-    public Material[] materials;
-    public Material[] previousMaterials;
-    public float duration;
+    public struct SoggyComponent 
+    {
+        public Transform ObjTransform;
+        public ParticleSystem Particle;
+        public Material[] Materials;
+        public Material[] PreviousMaterials;
+        public float Duration;
+    }
 }

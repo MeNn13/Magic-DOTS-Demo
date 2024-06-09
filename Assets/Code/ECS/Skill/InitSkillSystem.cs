@@ -1,6 +1,10 @@
-﻿using Assets.Code.ECS.EntityRef;
+﻿using System;
+using Code.ECS.Attack;
+using Code.ECS.EntityRef.Mono;
 using Code.ECS.Input;
+using Code.ECS.Skill.Cooldown;
 using Code.ECS.Skill.Mono;
+using Code.ECS.Skill.Pyro;
 using Code.ECS.Skill.SkillsComponent;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -15,7 +19,6 @@ namespace Code.ECS.Skill
 
         private readonly SkillUI _ui;
         private readonly SkillsCircle _skillsCircle;
-        private const int MAXComponentCount = 5;
         private EcsEntity _skillContainer;
 
         public void Run()
@@ -24,27 +27,40 @@ namespace Code.ECS.Skill
             {
                 ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref InputComponent input = ref _filter.Get1(i);
+                ref AttackComponent attackComponent = ref _filter.Get2(i);
 
                 SetIconUIValue(input);
+
                 TryCreateSkillContainer();
                 TryAddSkillComponent(input);
 
-                if (input.isAttacking)
-                    SkillComplete(ref entity);
+                if (input.isAttacking
+                    && !attackComponent.active
+                    && _skillContainer.Has<SkillComponent>())
+                    SkillComplete(ref entity, attackComponent);
             }
         }
+
         private void TryAddSkillComponent(InputComponent input)
         {
-            if (input.isAttacking || GetSkillCount() >= MAXComponentCount)
+            if (input.isAttacking)
                 return;
 
-            AddSkillComponent(ref input, ref _skillContainer);
+            AddSkillComponent<PyroComponent>(input.isPyro, _skillsCircle.SetFireCircle);
+            AddSkillComponent<HydroComponent>(input.isHydro, _skillsCircle.SetHydroCircle);
+            AddSkillComponent<VentoComponent>(input.isVento, _skillsCircle.SetVentoCircle);
+            AddSkillComponent<GeoComponent>(input.isGeo, _skillsCircle.SetGeoCircle);
         }
-        private int GetSkillCount()
-        {
-            var skillComponent = _skillContainer.Get<SkillComponent>();
 
-            return skillComponent.PyroCount + skillComponent.HydroCount + skillComponent.GeoCount + skillComponent.VentoCount;
+        private void AddSkillComponent<T>(bool input, Action<bool> circleUiAction)
+            where T : struct
+        {
+            if (input)
+            {
+                _skillContainer.Get<T>();
+                circleUiAction.Invoke(true);
+                _skillContainer.Get<SkillComponent>();
+            }
         }
 
         private void TryCreateSkillContainer()
@@ -54,21 +70,15 @@ namespace Code.ECS.Skill
 
             _skillContainer = _world.NewEntity();
             _skillContainer.Get<SkillContainerComponent>();
-            _skillContainer.Get<SkillComponent>();
-
-            SetDefaultTextUIValue();
-        }
-        private void SetDefaultTextUIValue()
-        {
-            _ui.SetPyroCountText("");
-            _ui.SetHydroCountText("");
-            _ui.SetVentoCountText("");
-            _ui.SetGeoCountText("");
         }
 
-        private void SkillComplete(ref EcsEntity entity)
+        private void SkillComplete(ref EcsEntity characterEntity, AttackComponent attackComponent)
         {
-            GameObject skill = new();
+            GameObject skill = new("Skill");
+            skill.transform.parent = attackComponent.hand;
+            skill.transform.localPosition = Vector3.zero;
+            skill.transform.localRotation = Quaternion.identity;
+            
             EcsEntity skillEntity = _world.NewEntity();
             _skillContainer.MoveTo(skillEntity);
 
@@ -80,9 +90,8 @@ namespace Code.ECS.Skill
 
             skillEntity.Del<SkillContainerComponent>();
             _skillContainer = EcsEntity.Null;
-            entity.Get<SkillCooldownComponent>().Cooldown = .5f;
+            characterEntity.Get<SkillCooldownComponent>().Cooldown = .5f;
 
-            SetDefaultTextUIValue();
             _skillsCircle.SetAllCircles(false);
         }
 
@@ -92,38 +101,6 @@ namespace Code.ECS.Skill
             _ui.HydroPres(input.isHydro);
             _ui.VentoPres(input.isVento);
             _ui.GeoPres(input.isGeo);
-        }
-
-        private void AddSkillComponent(ref InputComponent input, ref EcsEntity entity)
-        {
-            if (input.isPyro)
-            {
-                entity.Get<PyroComponent>();
-                int count = ++_skillContainer.Get<SkillComponent>().PyroCount;
-                _ui.SetPyroCountText(count.ToString());
-                _skillsCircle.SetFireCircle(true);
-            }
-            else if (input.isHydro)
-            {
-                entity.Get<HydroComponent>();
-                int count = ++_skillContainer.Get<SkillComponent>().HydroCount;
-                _ui.SetHydroCountText(count.ToString());
-                _skillsCircle.SetHydroCircle(true);
-            }
-            else if (input.isVento)
-            {
-                entity.Get<VentoComponent>();
-                int count = ++_skillContainer.Get<SkillComponent>().VentoCount;
-                _ui.SetVentoCountText(count.ToString());
-                _skillsCircle.SetVentoCircle(true);
-            }
-            else if (input.isGeo)
-            {
-                entity.Get<GeoComponent>();
-                int count = ++_skillContainer.Get<SkillComponent>().GeoCount;
-                _ui.SetGeoCountText(count.ToString());
-                _skillsCircle.SetGeoCircle(true);
-            }
         }
     }
 }

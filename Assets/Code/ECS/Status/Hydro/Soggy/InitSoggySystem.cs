@@ -1,8 +1,10 @@
-﻿using Assets.Code.ECS.Status.Pool;
+﻿using Code.ECS.Status.Combine.Steam;
+using Code.ECS.Status.Hydro.Wet;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Hydro.Soggy
+namespace Code.ECS.Status.Hydro.Soggy
 {
     internal class InitSoggySystem : IEcsRunSystem
     {
@@ -12,7 +14,7 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
         private readonly EffectConfig _config;
         private readonly HydroParticlePool _hydroParticlePool;
 
-        private EffectData _effect => _config.SoggyData;
+        private EffectData Effect => _config.SoggyData;
 
         public void Run()
         {
@@ -23,8 +25,8 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
 
                 ref SoggyComponent soggy = ref entity.Get<SoggyComponent>();
 
-                soggy.objTransform = wetObject.collider.gameObject.transform;
-                soggy.duration = _effect.Duration;
+                soggy.ObjTransform = wetObject.Collider.gameObject.transform;
+                soggy.Duration = Effect.Duration;
 
                 ParticleSetup(ref soggy, ref wetObject);
 
@@ -35,14 +37,14 @@ namespace Assets.Code.ECS.Status.Hydro.Soggy
         private void ParticleSetup(ref SoggyComponent soggy, ref WetTriggerComponent wetTrigger)
         {
             ParticleSystem particle = _hydroParticlePool.Get();
-            particle.transform.parent = wetTrigger.collider.transform;
+            particle.transform.parent = wetTrigger.Collider.transform;
             particle.transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
             shape.shapeType = ParticleSystemShapeType.Mesh;
-            shape.mesh = soggy.objTransform.GetComponent<MeshFilter>().mesh;
+            shape.mesh = soggy.ObjTransform.GetComponent<MeshFilter>().mesh;
 
-            soggy.particle = particle;
+            soggy.Particle = particle;
         }
     }
 }

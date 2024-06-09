@@ -1,3 +1,6 @@
 ﻿using Voody.UniLeo;
 
-public sealed class PHealthComponent : MonoProvider<HealthComponent> { }
+namespace Code.ECS.Health
+{
+    public sealed class PHealthComponent : MonoProvider<HealthComponent> { }
+}

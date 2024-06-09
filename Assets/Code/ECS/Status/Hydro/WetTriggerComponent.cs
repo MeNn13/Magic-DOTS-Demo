@@ -1,6 +1,8 @@
 using UnityEngine;
-
-public struct WetTriggerComponent
+namespace Code.ECS.Status.Hydro
 {
-    public Collider collider;
+    public struct WetTriggerComponent
+    {
+        public Collider Collider;
+    }
 }

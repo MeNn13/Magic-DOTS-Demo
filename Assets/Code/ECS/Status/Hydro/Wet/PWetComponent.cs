@@ -1,3 +1,6 @@
 ﻿using Voody.UniLeo;
 
-public sealed class PWetComponent : MonoProvider<WetComponent> { }
+namespace Code.ECS.Status.Hydro.Wet
+{
+    public sealed class PWetComponent : MonoProvider<WetComponent> { }
+}

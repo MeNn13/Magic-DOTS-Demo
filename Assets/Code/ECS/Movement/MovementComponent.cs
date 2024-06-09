@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 
-namespace Assets.Code.ECS.Moveable
+namespace Code.ECS.Movement
 {
     [Serializable]
-    public struct MoveableComponent
+    public struct MovementComponent
     {
         public Transform transform;
         public float speed;

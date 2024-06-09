@@ -1,3 +1,6 @@
 ﻿using Voody.UniLeo;
 
-public sealed class PPlayerComponent : MonoProvider<PlayerComponent> { }
+namespace Code.ECS.Unit
+{
+    public sealed class PPlayerComponent : MonoProvider<PlayerComponent> { }
+}

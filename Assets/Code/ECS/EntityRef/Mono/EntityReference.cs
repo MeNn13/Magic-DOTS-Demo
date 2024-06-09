@@ -1,7 +1,7 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.EntityRef
+namespace Code.ECS.EntityRef.Mono
 {
     public class EntityReference : MonoBehaviour
     {

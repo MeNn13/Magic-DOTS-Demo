@@ -1,4 +1,6 @@
 using System;
-
-[Serializable]
-public struct PlayerComponent { }
+namespace Code.ECS.Unit
+{
+    [Serializable]
+    public struct PlayerComponent { }
+}

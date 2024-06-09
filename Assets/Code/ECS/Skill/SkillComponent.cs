@@ -5,9 +5,5 @@ namespace Code.ECS.Skill
     {
         public Transform Transform;
         public float Duration;
-        public byte PyroCount;
-        public byte HydroCount;
-        public byte VentoCount;
-        public byte GeoCount;
     }
 }

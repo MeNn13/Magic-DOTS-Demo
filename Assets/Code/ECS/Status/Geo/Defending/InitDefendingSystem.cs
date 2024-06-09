@@ -1,14 +1,15 @@
-﻿using Leopotam.Ecs;
+﻿using Code.ECS.Status.Geo.Defend;
+using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Geo.Defending
+namespace Code.ECS.Status.Geo.Defending
 {
     internal class InitDefendingSystem : IEcsRunSystem
     {
         private readonly EcsFilter<DefendComponent, DefendTriggerComponent> _filter;
         private readonly EffectConfig _effectConfig;
 
-        private DefendEffectData _effect => _effectConfig.DefendingData as DefendEffectData;
+        private DefendEffectData Effect => _effectConfig.DefendingData as DefendEffectData;
 
         public void Run()
         {
@@ -19,12 +20,12 @@ namespace Assets.Code.ECS.Status.Geo.Defending
 
                 ref DefendingComponent component = ref entity.Get<DefendingComponent>();
 
-                component.objTransform = trigger.collider.gameObject.transform;
-                component.particle = _effect.Particle;
-                component.defensePoints = _effect.DefensePoints;
-                component.duration = _effect.Duration;
+                component.ObjTransform = trigger.Collider.gameObject.transform;
+                component.Particle = Effect.Particle;
+                component.DefensePoints = Effect.DefensePoints;
+                component.Duration = Effect.Duration;
 
-                MaterialSetup(ref component, _effect.Materials);
+                MaterialSetup(ref component, Effect.Materials);
 
                 entity.Del<DefendTriggerComponent>();
             }
@@ -32,10 +33,10 @@ namespace Assets.Code.ECS.Status.Geo.Defending
 
         private static void MaterialSetup(ref DefendingComponent component, Material[] materials)
         {
-            component.materials = materials;
-            MeshRenderer meshRenderer = component.objTransform.GetComponent<MeshRenderer>();
-            component.previousMaterials = meshRenderer.materials;
-            meshRenderer.materials = component.materials;
+            component.Materials = materials;
+            MeshRenderer meshRenderer = component.ObjTransform.GetComponent<MeshRenderer>();
+            component.PreviousMaterials = meshRenderer.materials;
+            meshRenderer.materials = component.Materials;
         }
     }
 }

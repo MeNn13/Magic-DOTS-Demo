@@ -1,10 +1,11 @@
-﻿using Assets.Code.ECS.Status.Pool;
+﻿using Code.ECS.Skill;
+using Code.ECS.Status.Burning;
+using Code.ECS.Status.Hydro.Soggy;
+using Code.ECS.Status.Pool;
 using Leopotam.Ecs;
-using System.Linq;
-using Code.ECS.Skill;
 using UnityEngine;
 
-namespace Assets.Code.ECS.Status.Combine.Steam
+namespace Code.ECS.Status.Combine.Steam
 {
     internal class InitSteamSystem : IEcsRunSystem
     {
@@ -16,7 +17,7 @@ namespace Assets.Code.ECS.Status.Combine.Steam
         private readonly PyroParticlePool _pyroParticlePool;
         private readonly HydroParticlePool _hydroParticlePool;
 
-        private EffectData _effect => _config.SteamData;
+        private EffectData Effect => _config.SteamData;
 
         public void Run()
         {
@@ -27,13 +28,13 @@ namespace Assets.Code.ECS.Status.Combine.Steam
                 ref BurningComponent burning = ref _filter.Get2(i);
                 ref SteamComponent steam = ref entity.Get<SteamComponent>();
 
-                steam.objTransform = soggy.objTransform.gameObject.transform;
-                steam.duration = _effect.Duration;
+                steam.ObjTransform = soggy.ObjTransform.gameObject.transform;
+                steam.Duration = Effect.Duration;
 
                 ParticleSetup(ref steam);
 
-                _hydroParticlePool.Release(soggy.particle);
-                _pyroParticlePool.Release(burning.particle);
+                _hydroParticlePool.Release(soggy.Particle);
+                _pyroParticlePool.Release(burning.Particle);
 
                 entity.Del<SoggyComponent>();
                 entity.Del<BurningComponent>();
@@ -44,14 +45,14 @@ namespace Assets.Code.ECS.Status.Combine.Steam
         private void ParticleSetup(ref SteamComponent steam)
         {
             ParticleSystem particle = _steamParticlePool.Get();
-            particle.transform.parent = steam.objTransform;
+            particle.transform.parent = steam.ObjTransform;
             particle.transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
             shape.shapeType = ParticleSystemShapeType.Mesh;
-            shape.mesh = steam.objTransform.GetComponent<MeshFilter>().mesh;
+            shape.mesh = steam.ObjTransform.GetComponent<MeshFilter>().mesh;
 
-            steam.particle = particle;
+            steam.Particle = particle;
         }
     }
 }

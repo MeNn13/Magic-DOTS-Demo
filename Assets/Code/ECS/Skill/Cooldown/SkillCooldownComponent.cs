@@ -1,4 +1,7 @@
-public struct SkillCooldownComponent
+namespace Code.ECS.Skill.Cooldown
 {
-    public float Cooldown;
+    public struct SkillCooldownComponent
+    {
+        public float Cooldown;
+    }
 }

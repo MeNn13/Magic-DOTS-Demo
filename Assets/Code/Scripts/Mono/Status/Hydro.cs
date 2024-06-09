@@ -1,4 +1,8 @@
-﻿using Assets.Code.ECS.EntityRef;
+﻿using Code.ECS.EntityRef.Mono;
+using Code.ECS.Status.Combine.Steam;
+using Code.ECS.Status.Hydro;
+using Code.ECS.Status.Hydro.Soggy;
+using Code.ECS.Status.Hydro.Wet;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -15,7 +19,7 @@ namespace Assets.Code.Scripts.Mono.Status
                     && !entity.Has<WetTriggerComponent>()
                     && !entity.Has<SteamComponent>()
                     && !entity.Has<SoggyComponent>())
-                    entity.Get<WetTriggerComponent>().collider = other;
+                    entity.Get<WetTriggerComponent>().Collider = other;
             }
         }
     }
