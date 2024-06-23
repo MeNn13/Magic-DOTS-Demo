@@ -1,6 +1,5 @@
-﻿using Code.ECS.Skill.Mono;
+﻿using Code.ECS.Skill.Hydro;
 using Code.ECS.Skill.Pyro;
-using Code.ECS.Skill.SkillsComponent;
 using Leopotam.Ecs;
 
 namespace Code.ECS.Skill.Combine.Vape

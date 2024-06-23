@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 namespace Code.ECS.Health
 {
@@ -7,6 +8,8 @@ namespace Code.ECS.Health
     {
         public HealthUI ui;
         public float maxHealth;
+        public TextMeshPro damageText;
         [HideInInspector] public float health;
+        [HideInInspector] public float previousHealth;
     }
 }

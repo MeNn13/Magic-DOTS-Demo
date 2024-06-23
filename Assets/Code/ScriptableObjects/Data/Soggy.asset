@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f669b53d52fa8499e430a4fb0d8974, type: 3}
   m_Name: Soggy
   m_EditorClassIdentifier: 
-  _particle: {fileID: 215206228346224913, guid: 27a7edb87c9e3a843a25a809c3d777b5,
-    type: 3}
-  _materials:
+  particle: {fileID: 215206228346224913, guid: 27a7edb87c9e3a843a25a809c3d777b5, type: 3}
+  materials:
   - {fileID: 2100000, guid: c09c0866fd07e7c43bc9cddd457cd5be, type: 2}
-  _duration: 3
+  duration: 3

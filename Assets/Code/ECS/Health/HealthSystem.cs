@@ -1,4 +1,6 @@
-﻿using Leopotam.Ecs;
+﻿using System;
+using Code.ECS.DamageTextUI;
+using Leopotam.Ecs;
 using UnityEngine;
 
 namespace Code.ECS.Health
@@ -17,6 +19,7 @@ namespace Code.ECS.Health
             {
                 ref HealthComponent component = ref _filter.Get1(i);
                 component.health = component.maxHealth;
+                component.previousHealth = component.health;
             }
         }
 
@@ -24,11 +27,17 @@ namespace Code.ECS.Health
         {
             foreach (var i in _filter)
             {
+                ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref HealthComponent health = ref _filter.Get1(i);
 
                 RotateUIToCamera(health);
 
-                health.ui.UpdateHealth(health.health / health.maxHealth);
+                if (Math.Abs(health.previousHealth - health.health) > 1)
+                {
+                    health.ui.UpdateHealth(health.health / health.maxHealth);
+
+                    health.previousHealth = health.health;
+                }
             }
         }
 

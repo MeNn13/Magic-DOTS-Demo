@@ -1,7 +1,8 @@
 ﻿using Code.ECS.Skill.Combine.Vape;
+using Code.ECS.Skill.Geo;
+using Code.ECS.Skill.Hydro;
 using Code.ECS.Skill.Mono;
-using Code.ECS.Skill.Pyro;
-using Code.ECS.Skill.SkillsComponent;
+using Code.ECS.Skill.Vento;
 using Leopotam.Ecs;
 
 namespace Code.ECS.Skill.Combine
@@ -17,7 +18,7 @@ namespace Code.ECS.Skill.Combine
             {
                 ref EcsEntity entity = ref _filter.GetEntity(i);
 
-                SkillHasMoreOneCombine<PyroComponent>(ref entity);
+                SkillHasMoreOneCombine<VentoComponent>(ref entity);
                 SkillHasMoreOneCombine<HydroComponent>(ref entity);
                 SkillHasMoreOneCombine<VentoComponent>(ref entity);
                 SkillHasMoreOneCombine<GeoComponent>(ref entity);

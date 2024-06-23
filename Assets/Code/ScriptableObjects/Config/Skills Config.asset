@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85437001480eb6541be02f0bb166476c, type: 3}
   m_Name: Skills Config
   m_EditorClassIdentifier: 
-  pyroSkill: {fileID: 8654439699591722214, guid: ee1928735234aed40a05be6fef03c12a,
-    type: 3}
-  hydroSkill: {fileID: 8654439699591722214, guid: 7490dd14c67197c4f8686f88b0d83c10,
-    type: 3}
-  ventoSkill: {fileID: 8654439699591722214, guid: 229528be80c26ac4f82b41da8e163a24,
-    type: 3}
-  geoSkill: {fileID: 8654439699591722214, guid: 06a9755ea2c77c64da1dbb51aa4bd417,
-    type: 3}
+  skills:
+  - name: Pyro
+    skillPrefab: {fileID: 5193324175510967765, guid: ee1928735234aed40a05be6fef03c12a,
+      type: 3}
+    duration: 3
+  - name: Hydro
+    skillPrefab: {fileID: 5193324175510967765, guid: 7490dd14c67197c4f8686f88b0d83c10,
+      type: 3}
+    duration: 3
+  - name: Vento
+    skillPrefab: {fileID: 5193324175510967765, guid: 229528be80c26ac4f82b41da8e163a24,
+      type: 3}
+    duration: 1
+  - name: Geo
+    skillPrefab: {fileID: 5193324175510967765, guid: 06a9755ea2c77c64da1dbb51aa4bd417,
+      type: 3}
+    duration: 5
+  - name: Vape
+    skillPrefab: {fileID: 5193324175510967765, guid: 2440c1605a87ba54fb7e9b1e3d83d09e,
+      type: 3}
+    duration: 3

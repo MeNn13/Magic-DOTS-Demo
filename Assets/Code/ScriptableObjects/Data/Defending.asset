@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0da29cfac364543b9c28ef4a4fa27f, type: 3}
   m_Name: Defending
   m_EditorClassIdentifier: 
-  _particle: {fileID: 0}
-  _materials:
-  - {fileID: 2100000, guid: 68512d95f75dc8e43ad5a4e246eca5e8, type: 2}
+  particle: {fileID: 0}
+  materials:
   - {fileID: 2100000, guid: 156b020b3cc9b684aadd36540611bbee, type: 2}
-  _duration: 7
-  _defensePoints: 50
+  - {fileID: 2100000, guid: 68512d95f75dc8e43ad5a4e246eca5e8, type: 2}
+  duration: 5
+  defensePoints: 50

@@ -1,51 +1,53 @@
 using UnityEngine;
 using UnityEngine.Pool;
-using static UnityEngine.ParticleSystem;
 
-public class ParticlePool
+namespace Plugins.Custom
 {
-    private ObjectPool<ParticleSystem> _pool;
-    private ParticleSystem _prefab;
-    private readonly string _poolName;
-    private readonly GameObject _parent;
-
-    public ParticlePool(ParticleSystem prefab, int prewarmObjectCount, string poolName)
+    public class ParticlePool
     {
-        _prefab = prefab;
-        _poolName = poolName;
-        _parent = new(_poolName);
-        _pool = new ObjectPool<ParticleSystem>(OnCreate, OnGet, OnRelease, OnDestroy, false, prewarmObjectCount);
-    }
+        private readonly ObjectPool<ParticleSystem> _pool;
+        private readonly ParticleSystem _particle;
+        private readonly GameObject _parent;
 
-    public ParticleSystem Get()
-    {
-        ParticleSystem obj = _pool.Get();
-        return obj;
-    }
+        protected ParticlePool(ParticleSystem particle, int prewarmObjectCount, string poolName)
+        {
+            _particle = particle;
+            _parent = new GameObject(poolName);
+            _pool = new ObjectPool<ParticleSystem>(OnCreate, OnGet, OnRelease, OnDestroy, false, prewarmObjectCount);
+        }
 
-    public void Release(ParticleSystem obj)
-    {
-        obj.transform.parent = _parent.transform;
-        _pool.Release(obj);
-    }
+        public ParticleSystem Get()
+        {
+            ParticleSystem particle = _pool.Get();
+            return particle;
+        }
 
-    private ParticleSystem OnCreate()
-    {
-        return Object.Instantiate(_prefab, _parent.transform);
-    }
+        public void Release(ParticleSystem particle)
+        {
+            particle.transform.parent = _parent.transform;
+            _pool.Release(particle);
+        }
 
-    private void OnGet(ParticleSystem particle)
-    {
-        particle.Play();
-    }
+        private ParticleSystem OnCreate()
+        {
+            return Object.Instantiate(_particle, _parent.transform);
+        }
 
-    private void OnRelease(ParticleSystem particle)
-    {
-        particle.Stop();
-    }
+        private void OnGet(ParticleSystem particle)
+        {
+            particle.gameObject.SetActive(true);
+            particle.Play();
+        }
 
-    private void OnDestroy(ParticleSystem particle)
-    {
-        Object.Destroy(particle);
+        private void OnRelease(ParticleSystem particle)
+        {
+            particle.gameObject.SetActive(false);
+            particle.Stop();
+        }
+
+        private void OnDestroy(ParticleSystem particle)
+        {
+            Object.Destroy(particle);
+        }
     }
 }

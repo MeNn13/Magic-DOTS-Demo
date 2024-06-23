@@ -27,6 +27,7 @@ namespace Code.ECS.Status.Combine.Steam
                 {
                     _steamParticlePool.Release(steam.Particle);
                     entity.Del<SteamComponent>();
+                    entity.Del<SteamDamageTriggerComponent>();
                 }
             }
         }

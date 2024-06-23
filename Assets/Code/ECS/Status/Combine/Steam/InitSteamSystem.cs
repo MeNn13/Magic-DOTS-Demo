@@ -1,7 +1,9 @@
-﻿using Code.ECS.Skill;
+﻿using Code.ECS.Pool;
+using Code.ECS.Skill;
 using Code.ECS.Status.Burning;
 using Code.ECS.Status.Hydro.Soggy;
 using Code.ECS.Status.Pool;
+using Code.ScriptableObjects.Status_Effect;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -17,7 +19,7 @@ namespace Code.ECS.Status.Combine.Steam
         private readonly PyroParticlePool _pyroParticlePool;
         private readonly HydroParticlePool _hydroParticlePool;
 
-        private EffectData Effect => _config.SteamData;
+        private AttackEffectData Effect => _config.SteamData as AttackEffectData;
 
         public void Run()
         {
@@ -26,10 +28,11 @@ namespace Code.ECS.Status.Combine.Steam
                 ref EcsEntity entity = ref _filter.GetEntity(i);
                 ref SoggyComponent soggy = ref _filter.Get1(i);
                 ref BurningComponent burning = ref _filter.Get2(i);
+                
                 ref SteamComponent steam = ref entity.Get<SteamComponent>();
-
                 steam.ObjTransform = soggy.ObjTransform.gameObject.transform;
                 steam.Duration = Effect.Duration;
+                steam.Damage = Effect.Damage;
 
                 ParticleSetup(ref steam);
 

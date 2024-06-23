@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7861cfb1519a81741b04c07a8c6e1150, type: 3}
   m_Name: Burning
   m_EditorClassIdentifier: 
-  _particle: {fileID: 4324737202212280017, guid: 2823aa85c5448da4fba67c48e39401f1,
+  particle: {fileID: 4324737202212280017, guid: 2823aa85c5448da4fba67c48e39401f1,
     type: 3}
-  _materials:
+  materials:
   - {fileID: 2100000, guid: 75d515480dac02a4ba804ed6c6458161, type: 2}
-  _duration: 3
-  _damage: 7
+  duration: 3
+  damage: 5

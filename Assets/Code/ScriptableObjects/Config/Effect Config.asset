@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe455809306e8004384091801ebab078, type: 3}
   m_Name: Effect Config
   m_EditorClassIdentifier: 
-  _burningData: {fileID: 11400000, guid: 5dd27598d0955de4faa0048d10c65d02, type: 2}
-  _soggyData: {fileID: 11400000, guid: 473155b6ba73f5842804d774688a7b60, type: 2}
-  _steamData: {fileID: 11400000, guid: f7c3a28c8af5768458f1a4681e7b75c7, type: 2}
-  _defendingData: {fileID: 11400000, guid: 017d129dfc6e51f42bc3686924614f01, type: 2}
+  burningData: {fileID: 11400000, guid: 5dd27598d0955de4faa0048d10c65d02, type: 2}
+  soggyData: {fileID: 11400000, guid: 473155b6ba73f5842804d774688a7b60, type: 2}
+  steamData: {fileID: 11400000, guid: 52f313b4c108cad45854109f94835fec, type: 2}
+  defendingData: {fileID: 11400000, guid: 017d129dfc6e51f42bc3686924614f01, type: 2}

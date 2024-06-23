@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Effect", menuName = "ScriptableObject/Effect/Attack")]
-public class AttackEffectData : EffectData
+namespace Code.ScriptableObjects.Status_Effect
 {
-    [SerializeField] private int _damage;
-    public int Damage { get => _damage; }
+    [CreateAssetMenu(fileName = "New Effect", menuName = "ScriptableObject/Effect/Attack")]
+    public class AttackEffectData : EffectData
+    {
+        [SerializeField] private float damage;
+        public float Damage => damage;
+    }
 }

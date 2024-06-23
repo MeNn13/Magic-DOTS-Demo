@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Code.ScriptableObjects
@@ -5,14 +7,16 @@ namespace Code.ScriptableObjects
     [CreateAssetMenu(fileName = "New Skill", menuName = "ScriptableObject/Skill")]
     public class SkillsConfig : ScriptableObject
     {
-        [SerializeField] private ParticleSystem pyroSkill;
-        [SerializeField] private ParticleSystem hydroSkill;
-        [SerializeField] private ParticleSystem ventoSkill;
-        [SerializeField] private ParticleSystem geoSkill;
+        [SerializeField] private List<SkillData> skills;
 
-        public ParticleSystem PyroSkill => pyroSkill;
-        public ParticleSystem HydroSkill => hydroSkill;
-        public ParticleSystem VentoSkill => ventoSkill;
-        public ParticleSystem GeoSkill => geoSkill;
+        public List<SkillData> Skills => skills;
+    }
+
+    [Serializable]
+    public class SkillData
+    {
+        public string name;
+        public GameObject skillPrefab;
+        public float duration;
     }
 }

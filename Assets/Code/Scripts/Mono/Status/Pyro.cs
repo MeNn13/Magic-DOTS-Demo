@@ -6,7 +6,7 @@ using Code.ECS.Status.Combine.Steam;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Assets.Code.Scripts.Mono.Status
+namespace Code.Scripts.Mono.Status
 {
     public class Pyro : MonoBehaviour
     {

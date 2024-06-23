@@ -1,19 +1,24 @@
 ﻿using Code.ECS.Status;
 using Code.ECS.Attack;
+using Code.ECS.DamageTextUI;
 using Code.ECS.EntityRef;
 using Code.ECS.Health;
 using Code.ECS.Input;
 using Code.ECS.Movement;
+using Code.ECS.Pool;
 using Code.ECS.Skill;
 using Code.ECS.Skill.Combine;
 using Code.ECS.Skill.Combine.Vape;
 using Code.ECS.Skill.Cooldown;
+using Code.ECS.Skill.Geo;
 using Code.ECS.Skill.Hydro;
 using Code.ECS.Skill.Mono;
 using Code.ECS.Skill.Pyro;
+using Code.ECS.Skill.Vento;
 using Code.ECS.Status.Burning;
 using Code.ECS.Status.Combine.Steam;
 using Code.ECS.Status.Geo.Defending;
+using Code.ECS.Status.Hydro;
 using Code.ECS.Status.Hydro.Soggy;
 using Code.ECS.Status.Pool;
 using Code.ScriptableObjects;
@@ -29,7 +34,7 @@ namespace Code.ECS
         [SerializeField] private EffectConfig effectConfig;
         [SerializeField] private SkillUI skillUI;
         [SerializeField] private SkillsCircle skillsCircle;
-        
+
         private EcsWorld _world;
         private EcsSystems _systemsUpdate;
         private EcsSystems _systemsFixedUpdate;
@@ -44,9 +49,9 @@ namespace Code.ECS
             _systemsUpdate = new EcsSystems(_world);
             _systemsFixedUpdate = new EcsSystems(_world);
 
-            _pyroParticlePool = new PyroParticlePool(effectConfig.BurningData.Particle, 50, "Pyro Pool");
-            _hydroParticlePool = new HydroParticlePool(effectConfig.SoggyData.Particle, 50, "Hydro Pool");
-            _steamParticlePool = new SteamParticlePool(effectConfig.SteamData.Particle, 10, "Steam Pool");
+            _pyroParticlePool = new PyroParticlePool(effectConfig.BurningData.Particle, 5, "Pyro Pool");
+            _hydroParticlePool = new HydroParticlePool(effectConfig.SoggyData.Particle, 5, "Hydro Pool");
+            _steamParticlePool = new SteamParticlePool(effectConfig.SteamData.Particle, 5, "Steam Pool");
 
             SystemSetup();
         }
@@ -55,11 +60,11 @@ namespace Code.ECS
         {
             _systemsUpdate?.ConvertScene();
 
-            OneFrame();
             AddSystems();
             AddStatusSystems();
             AddSkillSystem();
             AddFixedSystems();
+            OneFrame();
             Inject();
 
             _systemsUpdate?.Init();
@@ -68,7 +73,10 @@ namespace Code.ECS
 
         private void OneFrame()
         {
-            _systemsUpdate.OneFrame<InitEntityReferenceComponent>();
+            _systemsUpdate.OneFrame<InitEntityReferenceComponent>()
+                .OneFrame<DamageTextEndTriggerComponent>()
+                .OneFrame<BurnTriggerComponent>()
+                .OneFrame<WetTriggerComponent>();
         }
 
         private void AddSystems()
@@ -76,7 +84,8 @@ namespace Code.ECS
             _systemsUpdate.Add(new InitEntityReferenceSystem())
                 .Add(new InputHandlerSystem())
                 .Add(new InputAttackSystem())
-                .Add(new HealthSystem());
+                .Add(new HealthSystem())
+                .Add(new DamageTextSystem());
         }
 
         private void AddSkillSystem()
@@ -86,11 +95,14 @@ namespace Code.ECS
                 .Add(new SkillCooldownSystem())
                 .Add(new CombineSystem())
                 .Add(new VapeInitSystem())
+                .Add(new VapeSystem())
                 .Add(new PyroSystem())
-                .Add(new HydroSystem());
+                .Add(new HydroSystem())
+                .Add(new VentoSystem())
+                .Add(new GeoSystem());
         }
-        
-        private void AddStatusSystems() 
+
+        private void AddStatusSystems()
         {
             _systemsUpdate.Add(new InitBurnSystem())
                 .Add(new BurningSystem())
@@ -98,6 +110,7 @@ namespace Code.ECS
                 .Add(new SoggySystem())
                 .Add(new InitSteamSystem())
                 .Add(new SteamSystem())
+                .Add(new HealthSteamSystem())
                 .Add(new HealthBurningSystem())
                 .Add(new InitDefendingSystem())
                 .Add(new HealthDefenseSystem())
@@ -112,12 +125,12 @@ namespace Code.ECS
         private void Inject()
         {
             _systemsUpdate?.Inject(skillsConfig)
-            .Inject(effectConfig)
-            .Inject(_pyroParticlePool)
-            .Inject(_hydroParticlePool)
-            .Inject(_steamParticlePool)
-            .Inject(skillUI)
-            .Inject(skillsCircle);
+                .Inject(effectConfig)
+                .Inject(_pyroParticlePool)
+                .Inject(_hydroParticlePool)
+                .Inject(_steamParticlePool)
+                .Inject(skillUI)
+                .Inject(skillsCircle);
         }
 
         private void Update()

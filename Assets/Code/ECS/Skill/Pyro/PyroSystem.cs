@@ -4,33 +4,40 @@ using UnityEngine;
 
 namespace Code.ECS.Skill.Pyro
 {
-    public class PyroSystem : IEcsRunSystem
+    public class PyroSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilter<SkillComponent, PyroComponent>
             .Exclude<SkillContainerComponent> _filter;
         
         private readonly SkillsConfig _skillsConfig;
+        private SkillData _skillData;
+        
+        public void Init()
+        {
+            foreach (var skill in _skillsConfig.Skills)
+                if (skill.name == "Pyro")
+                    _skillData = skill;
+        }
         
         public void Run()
         {
             foreach (var i in _filter)
             {
                 ref SkillComponent skillComponent = ref _filter.Get1(i);
-                ref PyroComponent pyroComponent = ref _filter.Get2(i);
+                ref PyroComponent ventoComponent = ref _filter.Get2(i);
 
-                CheckHasParticle(ref pyroComponent, skillComponent);
-
-                pyroComponent.PyroSkill.Play();
+                CheckHasParticle(ref ventoComponent, ref skillComponent);
             }
         }
-        private void CheckHasParticle(ref PyroComponent pyroComponent, SkillComponent skillComponent)
+        private void CheckHasParticle(ref PyroComponent ventoComponent, ref SkillComponent skillComponent)
         {
-            if (pyroComponent.PyroSkill == null)
+            if (ventoComponent.PyroSkill == null)
             {
-                GameObject particle = Object.Instantiate(_skillsConfig.PyroSkill.gameObject,
+                GameObject particle = Object.Instantiate(_skillData.skillPrefab,
                     skillComponent.Transform);
                 
-                pyroComponent.PyroSkill = particle.GetComponent<ParticleSystem>();
+                ventoComponent.PyroSkill = particle;
+                skillComponent.Duration = _skillData.duration;
             }
         }
     }

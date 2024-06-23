@@ -4,6 +4,6 @@ namespace Code.ECS.Skill.Pyro
 {
     public struct PyroComponent
     {
-        public ParticleSystem PyroSkill;
+        public GameObject PyroSkill;
     }
 }

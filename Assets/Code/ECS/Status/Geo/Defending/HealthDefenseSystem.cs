@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Health;
+using Code.ScriptableObjects.Status_Effect;
 using Leopotam.Ecs;
 using UnityEngine;
 

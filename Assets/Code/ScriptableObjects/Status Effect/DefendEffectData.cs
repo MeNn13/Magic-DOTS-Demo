@@ -1,9 +1,11 @@
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "New Effect", menuName = "ScriptableObject/Effect/Defend")]
-public class DefendEffectData : EffectData
+namespace Code.ScriptableObjects.Status_Effect
 {
-    [SerializeField] private float _defensePoints;
+    [CreateAssetMenu(fileName = "New Effect", menuName = "ScriptableObject/Effect/Defend")]
+    public class DefendEffectData : EffectData
+    {
+        [SerializeField] private float defensePoints;
 
-    public float DefensePoints { get => _defensePoints; }
+        public float DefensePoints => defensePoints;
+    }
 }

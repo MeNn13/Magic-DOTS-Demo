@@ -10,6 +10,7 @@ namespace Code.ECS.Status.Burning
     {
         private readonly EcsFilter<BurningComponent>
             .Exclude<HealthComponent, SkillComponent> _filter;
+        
         private readonly PyroParticlePool _particlePool;
 
         public void Run()

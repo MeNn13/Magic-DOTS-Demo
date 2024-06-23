@@ -1,4 +1,5 @@
 ﻿using Code.ECS.Status.Geo.Defend;
+using Code.ScriptableObjects.Status_Effect;
 using Leopotam.Ecs;
 using UnityEngine;
 

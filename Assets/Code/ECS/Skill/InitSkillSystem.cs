@@ -3,9 +3,11 @@ using Code.ECS.Attack;
 using Code.ECS.EntityRef.Mono;
 using Code.ECS.Input;
 using Code.ECS.Skill.Cooldown;
+using Code.ECS.Skill.Geo;
+using Code.ECS.Skill.Hydro;
 using Code.ECS.Skill.Mono;
 using Code.ECS.Skill.Pyro;
-using Code.ECS.Skill.SkillsComponent;
+using Code.ECS.Skill.Vento;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -83,7 +85,6 @@ namespace Code.ECS.Skill
             _skillContainer.MoveTo(skillEntity);
 
             ref SkillComponent component = ref skillEntity.Get<SkillComponent>();
-            component.Duration = 3f;
             component.Transform = skill.transform;
 
             skill.AddComponent<EntityReference>().Entity = skillEntity;

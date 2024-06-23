@@ -2,6 +2,7 @@
 using Code.ECS.Status.Burning;
 using Code.ECS.Status.Combine.Steam;
 using Code.ECS.Status.Pool;
+using Code.ScriptableObjects.Status_Effect;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -22,7 +23,6 @@ namespace Code.ECS.Status
             foreach (var i in _filter)
             {
                 ref EcsEntity entity = ref _filter.GetEntity(i);
-                ref BurnableComponent burnable = ref _filter.Get1(i);
                 ref BurnTriggerComponent burnObject = ref _filter.Get2(i);
 
                 ref BurningComponent burning = ref entity.Get<BurningComponent>();
@@ -41,8 +41,9 @@ namespace Code.ECS.Status
         {
             ParticleSystem particle = _burnParticlePool.Get();
 
-            particle.transform.parent = burning.ObjTransform.transform;
-            particle.transform.localPosition = Vector3.zero;
+            var transform = particle.transform;
+            transform.parent = burning.ObjTransform.transform;
+            transform.localPosition = Vector3.zero;
 
             var shape = particle.shape;
             shape.shapeType = ParticleSystemShapeType.Mesh;
